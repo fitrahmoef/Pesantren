@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admisi | Pondok Pesantren Mahmud Marzuki Penyusawan</title>
+
+  <!-- ============ CSS ============ -->
+  <style>
+    :root{
+      --primary-blue:#1a75ff;
+      --primary-yellow:#ffc107;
+      --light-yellow:#fff3cd;
+      --white:#fff;
+      --dark-blue:#0d47a1;
+      --light-blue:#e3f2fd;
+      --gray:#f5f5f5;
+      --error:#ff6b6b;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+    body{background:var(--white);scroll-behavior:smooth;}
+
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;}
+
+    /* ----- header ------ */
+    header{background:var(--light-blue);padding:20px 0;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,.1);}
+    .logo{width:180px;height:180px;border:5px solid var(--primary-yellow);border-radius:50%;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(0,0,0,.1);margin:0 auto;}
+    .logo img{max-width:85%}
+
+    /* nav */
+    .nav-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin:30px 0;}
+    .nav-btn{background:var(--primary-blue);color:#fff;padding:14px 10px;border-radius:8px;font-weight:700;text-decoration:none;display:flex;flex-direction:column;align-items:center;transition:.3s;}
+    .nav-btn i{font-size:22px;margin-bottom:6px;}
+    .nav-btn:hover,.nav-btn.active{background:var(--dark-blue);transform:translateY(-4px);}
+
+    /* hero simple */
+    .hero-simple{background:var(--dark-blue);color:#fff;padding:60px 20px;text-align:center;border-radius:10px;margin-bottom:50px;}
+    .hero-simple h1{font-size:2.8rem;margin-bottom:12px;}
+    .hero-simple p{font-size:1.2rem;}
+
+    /* steps progress */
+    #steps{margin-bottom:60px;}
+    .step-bar{display:flex;justify-content:space-between;margin-bottom:40px;position:relative;}
+    .step{flex:1;text-align:center;position:relative;}
+    .step:not(:last-child)::after{content:'';position:absolute;top:22px;right:-50%;width:100%;height:4px;background:var(--light-blue);z-index:-1;}
+    .step-circle{width:45px;height:45px;border-radius:50%;border:4px solid var(--light-blue);display:inline-flex;align-items:center;justify-content:center;font-weight:700;background:#fff;color:var(--dark-blue);transition:.3s;}
+    .step.active .step-circle{background:var(--primary-yellow);border-color:var(--primary-yellow);}
+    .step span{display:block;margin-top:8px;font-size:.9rem;font-weight:700;color:var(--dark-blue);}
+
+    /* accordion detail */
+    .acc-item{background:#fff;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,.1);margin-bottom:18px;overflow:hidden;transition:.3s;}
+    .acc-head{padding:18px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+    .acc-head h3{color:var(--primary-blue);font-size:1.1rem;}
+    .acc-content{max-height:0;overflow:hidden;padding:0 24px 0 24px;transition:max-height .4s ease;}
+    .acc-content p{padding:14px 0;color:#444;line-height:1.5;}
+    .acc-item.open .acc-content{max-height:300px;}
+    .acc-item.open .acc-head i{transform:rotate(180deg);}
+    .acc-head i{transition:.3s;}
+
+    /* form */
+    #apply{background:#fff;border-radius:10px;padding:30px;box-shadow:0 3px 10px rgba(0,0,0,.1);}
+    #apply h2{color:var(--dark-blue);margin-bottom:18px;}
+    .form-group{display:flex;flex-direction:column;margin-bottom:18px;}
+    label{font-weight:700;margin-bottom:6px;color:var(--dark-blue);}
+    input,select,textarea{padding:10px 14px;border:2px solid var(--light-blue);border-radius:6px;font-size:.95rem;transition:.3s;}
+    input:focus,select:focus,textarea:focus{border-color:var(--primary-blue);outline:none;}
+    .error{border-color:var(--error);}
+    .err-msg{color:var(--error);font-size:.85rem;margin-top:4px;display:none;}
+    .btn-submit{background:var(--primary-blue);color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:.3s;}
+    .btn-submit:hover{background:var(--dark-blue);}
+    .progress{margin-top:20px;height:10px;background:var(--light-blue);border-radius:6px;overflow:hidden;display:none;}
+    .progress-bar{height:100%;width:0;background:var(--primary-yellow);transition:width .4s;}
+
+    /* stats */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:25px;margin:60px 0;}
+    .stat-box{background:#fff;border-radius:10px;padding:25px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.1);}
+    .count{font-size:2.6rem;font-weight:800;color:var(--primary-blue);}
+    .stat-box p{margin-top:8px;color:var(--dark-blue);}
+
+    /* footer */
+    footer{background:var(--dark-blue);color:#fff;padding:40px 0 20px;margin-top:60px;}
+    .foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;}
+    .foot-grid h3{color:var(--primary-yellow);margin-bottom:16px;border-bottom:1px solid var(--primary-yellow);padding-bottom:8px;}
+    .foot-links a{display:block;color:#fff;text-decoration:none;margin-bottom:10px;transition:.3s;}
+    .foot-links a:hover{color:var(--primary-yellow);transform:translateX(6px);}
+    .copyright{text-align:center;margin-top:28px;font-size:.9rem;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;}
+  </style>
+
+  <!-- ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="logo"><img src="https://media-hosting.imagekit.io//08ea0aa2b86b45b3/c0a04346-1924-4d34-b66f-264de378d327.jpg?Expires=1835874188&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XCy6xAnh8i-MkpspFbB4det~5sCPsTrEoxSoTgO9SZC2zbUh8rOYHthWOcpGLbFZfq0N6GtO9RW6PVt9ltOT8VYlUeAhF2CAVmP8vMVdRctpciTQa9jnkfPSATRdNYHL5-fLoI-LBanADmj4xwdmNsBol0YrxaLhKmOKbhOcSQL2f9Hnv~MUJLRQwmq~Hg9ehHKL5nXHNHb9WUOsgp-abUSCO1RUR8etdS9xFP4X2k0ODvI7Qsk-Fl7qrOWChimw1LGkapbOTjCwfWzhdy8S6q28foPnTrp1kycYanFKSZQbWx-rSmfSyPvL-ct7AYBbryOYQliILuaCEN5D7HjR9A__" alt="Logo"/></div>
+  </header>
+
+  <div class="container">
+    <!-- ===== NAV ===== -->
+    <nav class="nav-grid">
+      <a class="nav-btn" href="Main.html"><i class="fas fa-info-circle"></i>Tentang Kami</a>
+      <a class="nav-btn" href="history.html"><i class="fas fa-history"></i>Sejarah</a>
+      <a class="nav-btn" href="academics.html"><i class="fas fa-book"></i>Program Akademik</a>
+      <a class="nav-btn" href="islamic-studies.html"><i class="fas fa-mosque"></i>Studi Islam</a>
+      <a class="nav-btn" href="calendar.html"><i class="fas fa-calendar-alt"></i>Kalender</a>
+      <a class="nav-btn active" href="admissions.html"><i class="fas fa-user-graduate"></i>Admisi</a>
+    </nav>
+
+    <!-- ===== HERO SIMPLE ===== -->
+    <section class="hero-simple">
+      <h1>Penerimaan Santri Baru</h1>
+      <p>Tahun Ajaran 2025/2026 • Pondok Pesantren Mahmud Marzuki Penyusawan</p>
+    </section>
+
+    <!-- ===== STEP PROGRESS ===== -->
+    <section id="steps">
+      <div class="step-bar">
+        <div class="step active"><div class="step-circle">1</div><span>Registrasi</span></div>
+        <div class="step"><div class="step-circle">2</div><span>Verifikasi</span></div>
+        <div class="step"><div class="step-circle">3</div><span>Tes Seleksi</span></div>
+        <div class="step"><div class="step-circle">4</div><span>Pengumuman</span></div>
+        <div class="step"><div class="step-circle">5</div><span>Daftar Ulang</span></div>
+      </div>
+
+      <!-- ACCORDION DETAIL -->
+      <div class="acc-item">
+        <div class="acc-head"><h3>1. Registrasi Online</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Buka portal admisi, isi formulir, dan unggah dokumen identitas.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head"><h3>2. Verifikasi Berkas</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Panitia mengecek kelengkapan berkas. Status dapat dipantau di dashboard.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head"><h3>3. Tes Seleksi</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Tes meliputi kemampuan akademik dasar, baca Qur’an, dan wawancara.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head"><h3>4. Pengumuman</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Hasil diumumkan di website &amp; email. Santri diterima melanjutkan ke tahap berikutnya.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head"><h3>5. Daftar Ulang</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Pembayaran infaq pendidikan, pengukuran seragam, dan penandatanganan surat komitmen.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FORM ===== -->
+    <section id="apply">
+      <h2>Formulir Pendaftaran Singkat</h2>
+      <form id="admissionForm" novalidate>
+        <div class="form-group">
+          <label for="name">Nama Lengkap *</label>
+          <input type="text" id="name" required>
+          <span class="err-msg">Nama wajib diisi.</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" required>
+          <span class="err-msg">Email tidak valid.</span>
+        </div>
+        <div class="form-group">
+          <label for="phone">No. HP *</label>
+          <input type="tel" id="phone" required>
+          <span class="err-msg">Nomor HP wajib diisi.</span>
+        </div>
+        <div class="form-group">
+          <label for="level">Jenjang *</label>
+          <select id="level" required>
+            <option value="">--Pilih--</option>
+            <option>Madrasah Tsanawiyah</option>
+            <option>Madrasah Aliyah IPA</option>
+            <option>Madrasah Aliyah IPS</option>
+          </select>
+          <span class="err-msg">Silakan pilih jenjang.</span>
+        </div>
+        <button type="submit" class="btn-submit">Kirim Pendaftaran</button>
+        <div class="progress"><div class="progress-bar"></div></div>
+      </form>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats">
+      <div class="stat-box"><div class="count" data-target="300">0</div><p>Kuota Kursi</p></div>
+      <div class="stat-box"><div class="count" data-target="125">0</div><p>Pendaftar Saat Ini</p></div>
+      <div class="stat-box"><div class="count" data-target="5">0</div><p>Hari ke Tes Gelombang 1</p></div>
+    </section>
+  </div><!-- /container -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Penyusawan</p>
+          <p><i class="fas fa-phone"></i> 0000000000000</p>
+          <p><i class="fas fa-envelope"></i> info@mahmudmarzukipenyusaawan.org</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <div class="foot-links">
+            <a href="Main.html"><i class="fas fa-angle-right"></i> Tentang Kami</a>
+            <a href="academics.html"><i class="fas fa-angle-right"></i> Program Akademik</a>
+            <a href="islamic-studies.html"><i class="fas fa-angle-right\"></i> Studi Islam</a>
+            <a href="admissions.html"><i class="fas fa-angle-right"></i> Admisi</a>
+          </div>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <div class="foot-links">
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2025 Mahmud Marzuki Penyusawan. Semua hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- ============ JavaScript ============ -->
+  <script>
+    /* header shrink */
+    const header=document.getElementById('header');
+    window.addEventListener('scroll',()=>header.classList.toggle('shrink',window.scrollY>120));
+
+    /* accordion */
+    document.querySelectorAll('.acc-item').forEach(acc=>{
+      acc.querySelector('.acc-head').onclick=()=>{
+        acc.classList.toggle('open');
+      };
+    });
+
+    /* form validation */
+    const form=document.getElementById('admissionForm');
+    const progress=document.querySelector('.progress');
+    const bar=document.querySelector('.progress-bar');
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      let valid=true;
+      form.querySelectorAll('[required]').forEach(inp=>{
+        const err=inp.nextElementSibling;
+        if(!inp.value.trim()||(inp.type==='email'&&!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(inp.value))){
+          inp.classList.add('error');
+          err.style.display='block';
+          valid=false;
+        }else{inp.classList.remove('error');err.style.display='none';}
+      });
+      if(!valid)return;
+      progress.style.display='block';
+      bar.style.width='0';
+      let w=0;
+      const int=setInterval(()=>{w+=10;bar.style.width=w+'%';if(w>=100){clearInterval(int);alert('Pendaftaran terkirim!');form.reset();progress.style.display='none';}},120);
+    });
+
+    /* step bar highlight ketika accordion dibuka */
+    const steps=document.querySelectorAll('.step');
+    document.querySelectorAll('.acc-item').forEach((acc,i)=>{
+      acc.querySelector('.acc-head').addEventListener('click',()=>{
+        steps.forEach(s=>s.classList.remove('active'));
+        steps[i].classList.add('active');
+      });
+    });
+
+    /* counter animation */
+    const countObs=new IntersectionObserver(ents=>{
+      ents.forEach(ent=>{
+        if(ent.isIntersecting){
+          const el=ent.target,tgt=+el.dataset.target,step=Math.ceil(tgt/100);let cur=0;
+          const inc=()=>{cur+=step;el.textContent=cur>=tgt?tgt:cur;cur<tgt&&requestAnimationFrame(inc);};
+          requestAnimationFrame(inc);countObs.unobserve(el);
+        }
+      });
+    },{threshold:.6});
+    document.querySelectorAll('.count').forEach(el=>countObs.observe(el));
+  </script>
+</body>
+</html>

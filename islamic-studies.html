@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studi Islam &amp; Hadits | Pondok Pesantren Mahmud Marzuki Penyusawan</title>
+
+  <!-- ============== CSS ============== -->
+  <style>
+    /* ---------- palet warna ---------- */
+    :root{
+      --primary-blue:#1a75ff;
+      --primary-yellow:#ffc107;
+      --light-yellow:#fff3cd;
+      --white:#fff;
+      --dark-blue:#0d47a1;
+      --light-blue:#e3f2fd;
+      --gray:#f5f5f5;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+    body{background:var(--white);scroll-behavior:smooth;}
+
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;}
+
+    /* ---------- header & nav ---------- */
+    header{background:var(--light-blue);padding:20px 0;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,.1);}
+    .logo{width:180px;height:180px;border:5px solid var(--primary-yellow);border-radius:50%;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(0,0,0,.1);margin:0 auto;}
+    .logo img{max-width:85%}
+
+    .nav-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin:30px 0;}
+    .nav-btn{background:var(--primary-blue);color:#fff;padding:14px 10px;border-radius:8px;font-weight:700;text-decoration:none;display:flex;flex-direction:column;align-items:center;transition:.3s;}
+    .nav-btn i{font-size:22px;margin-bottom:6px;}
+    .nav-btn:hover,.nav-btn.active{background:var(--dark-blue);transform:translateY(-4px)}
+
+    /* ---------- hero ---------- */
+    .hero{position:relative;height:100vh;overflow:hidden;}
+    .hero::after{content:\"\";position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:1;}
+    .hero-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;color:#fff;width:90%;max-width:800px;}
+    .hero-text h1{font-size:3rem;margin-bottom:18px;text-shadow:2px 2px 4px rgba(0,0,0,.7);}
+    .hero-text p{font-size:1.25rem;margin-bottom:28px;text-shadow:1px 1px 3px rgba(0,0,0,.7);}
+    .hero-btn{display:inline-block;padding:15px 40px;background:var(--primary-yellow);color:var(--dark-blue);border-radius:40px;font-weight:700;border:2px solid var(--primary-yellow);transition:.3s;}
+    .hero-btn:hover{background:transparent;color:#ffffff;}
+
+    /* ---------- info box ---------- */
+    .info-box{background:#fff;border-left:5px solid var(--primary-blue);border-radius:10px;padding:26px;box-shadow:0 3px 10px rgba(0,0,0,.1);margin:50px 0;}
+    .section-title{color:var(--dark-blue);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--light-blue);}
+
+    /* ---------- subject cards ---------- */
+    #subjects{margin:50px 0;}
+    .sub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+    .sub-card{background:var(--light-blue);border-radius:10px;padding:25px;text-align:center;color:var(--dark-blue);transition:.35s;opacity:0;transform:translateY(30px);}
+    .sub-card i{font-size:40px;color:var(--primary-yellow);margin-bottom:14px;}
+    .sub-card h3{margin-bottom:10px;color:var(--primary-blue);}
+    .sub-card.show{opacity:1;transform:none;box-shadow:0 8px 18px rgba(0,0,0,.1);}
+
+    /* ---------- hadith cards ---------- */
+    #hadith{margin:50px 0;}
+    .hadith-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;}
+    .hadith-card{background:#fff;border-radius:10px;padding:25px;box-shadow:0 3px 10px rgba(0,0,0,.1);position:relative;opacity:0;transform:translateY(30px);transition:.6s;}
+    .hadith-card.show{opacity:1;transform:none;}
+    .hadith-card::before{content:'\"';position:absolute;top:-18px;left:15px;font-size:80px;color:var(--light-blue);line-height:0;}
+    .hadith-ar{font-family:\"Scheherazade\",serif;font-size:1.4rem;direction:rtl;margin-bottom:10px;line-height:1.6;color:var(--dark-blue);}
+    .hadith-id{font-size:.95rem;line-height:1.4;margin-bottom:6px;}
+    .hadith-ref{font-size:.8rem;color:#666;text-align:right;}
+    .copy-btn{position:absolute;top:15px;right:18px;font-size:18px;color:var(--primary-blue);cursor:pointer;transition:.3s;}
+    .copy-btn:hover{color:var(--dark-blue);transform:scale(1.1);}
+    .copy-toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:var(--primary-yellow);color:var(--dark-blue);padding:10px 20px;border-radius:40px;font-weight:700;opacity:0;pointer-events:none;transition:.4s;}
+
+    /* ---------- stats ---------- */
+    .stats{margin:50px 0;}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:25px;text-align:center;}
+    .stat-box{background:#fff;border-radius:10px;padding:25px;box-shadow:0 3px 10px rgba(0,0,0,.1);}
+    .count{font-size:2.6rem;font-weight:800;color:var(--primary-blue);}
+    .stat-box p{margin-top:8px;color:var(--dark-blue);}
+
+    /* ---------- footer ---------- */
+    footer{background:var(--dark-blue);color:#fff;padding:40px 0 20px;margin-top:60px;}
+    .foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;}
+    .foot-grid h3{color:var(--primary-yellow);margin-bottom:16px;border-bottom:1px solid var(--primary-yellow);padding-bottom:8px;}
+    .foot-links a{display:block;color:#fff;text-decoration:none;margin-bottom:10px;transition:.3s;}
+    .foot-links a:hover{color:var(--primary-yellow);transform:translateX(6px);}
+    .copyright{text-align:center;margin-top:28px;font-size:.9rem;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;}
+  </style>
+
+  <!-- ikon & font Arab -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo"><img src="https://media-hosting.imagekit.io//08ea0aa2b86b45b3/c0a04346-1924-4d34-b66f-264de378d327.jpg?Expires=1835874188&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XCy6xAnh8i-MkpspFbB4det~5sCPsTrEoxSoTgO9SZC2zbUh8rOYHthWOcpGLbFZfq0N6GtO9RW6PVt9ltOT8VYlUeAhF2CAVmP8vMVdRctpciTQa9jnkfPSATRdNYHL5-fLoI-LBanADmj4xwdmNsBol0YrxaLhKmOKbhOcSQL2f9Hnv~MUJLRQwmq~Hg9ehHKL5nXHNHb9WUOsgp-abUSCO1RUR8etdS9xFP4X2k0ODvI7Qsk-Fl7qrOWChimw1LGkapbOTjCwfWzhdy8S6q28foPnTrp1kycYanFKSZQbWx-rSmfSyPvL-ct7AYBbryOYQliILuaCEN5D7HjR9A__" alt="Logo"/></div>
+  </header>
+
+  <div class="container">
+    <!-- ===== NAV ===== -->
+    <nav class="nav-grid">
+      <a class="nav-btn" href="Main.html"><i class="fas fa-info-circle"></i>Tentang Kami</a>
+      <a class="nav-btn" href="history.html"><i class="fas fa-history"></i>Sejarah</a>
+      <a class="nav-btn" href="academics.html"><i class="fas fa-book"></i>Program Akademik</a>
+      <a class="nav-btn active" href="islamic-studies.html"><i class="fas fa-mosque"></i>Pembelajaran Hadits</a>
+      <a class="nav-btn" href="calendar.html"><i class="fas fa-calendar-alt"></i>Kalender</a>
+      <a class="nav-btn" href="admissions.html"><i class="fas fa-user-graduate"></i>Admisi</a>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+
+      <div class="hero-text">
+        <h1>Studi&nbsp;Islam&nbsp;&amp;&nbsp;Hadits</h1>
+        <p>Mendalami warisan ilmu Nabi ﷺ dengan metode klasik &amp; modern.</p>
+        <a href="#subjects" class="hero-btn">Telusuri Pelajaran</a>
+      </div>
+    </section>
+
+    <!-- ===== KURIKULUM ===== -->
+    <article class="info-box">
+      <h2 class="section-title">Kurikulum Diniyyah Pesantren</h2>
+      <p>Kurikulum diniyyah kami mengacu pada <b>Kitab Turats</b> bertingkat—dari <em>Ta’shil</em> (fondasi) hingga <em>Tadabbur</em> (aplikasi). Pengajaran melalui <b>halaqah sorogan, bandongan</b>, diskusi studi kasus, dan <em>daurah</em> ulama tamu tiap semester.</p>
+    </article>
+
+    <!-- ===== SUBJECTS ===== -->
+    <section id="subjects">
+      <h2 class="section-title">Mata Pelajaran</h2>
+      <div class="sub-grid">
+        <div class="sub-card"><i class="fas fa-book-quran"></i><h3>Al-Qur’an &amp; Tajwid</h3><p>Tahsin, makharij, &amp; tafsir tematik.</p></div>
+        <div class="sub-card"><i class="fas fa-comment-dots"></i><h3>Ulum&nbsp;al-Hadits</h3><p>Musthalah, kritik sanad-matan.</p></div>
+        <div class="sub-card"><i class="fas fa-balance-scale"></i><h3>Fiqh &amp; Ushul</h3><p>Kaidah ushuliyyah &amp; maqashid.</p></div>
+        <div class="sub-card"><i class="fas fa-heart"></i><h3>Aqidah &amp; Akhlak</h3><p>Tazkiyatun-nafs &amp; adab.</p></div>
+        <div class="sub-card"><i class="fas fa-route"></i><h3>Sirah Nabawiyah</h3><p>Dakwah &amp; kepemimpinan Rasul.</p></div>
+        <div class="sub-card"><i class="fas fa-language"></i><h3>Bahasa Arab</h3><p>Nahwu-sharaf &amp; percakapan.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== HADITH ===== -->
+    <section id="hadith">
+      <h2 class="section-title">Hadits Pilihan</h2>
+      <div class="hadith-grid">
+        <div class="hadith-card">
+          <span class="copy-btn" title="Salin"><i class="fas fa-copy"></i></span>
+          <p class="hadith-ar">إنما الأعمال بالنيات</p>
+          <p class="hadith-id"><b>“Sesungguhnya setiap amal tergantung niatnya.”</b></p>
+          <p class="hadith-ref">(HR. Bukhari &amp; Muslim)</p>
+        </div>
+        <div class="hadith-card">
+          <span class="copy-btn" title="Salin"><i class="fas fa-copy"></i></span>
+          <p class="hadith-ar">خيركم من تعلم القرآن وعلمه</p>
+          <p class="hadith-id"><b>“Sebaik-baik kalian adalah yang belajar Al-Qur’an dan mengajarkannya.”</b></p>
+          <p class="hadith-ref">(HR. Bukhari)</p>
+        </div>
+        <div class="hadith-card">
+          <span class="copy-btn" title="Salin"><i class="fas fa-copy"></i></span>
+          <p class="hadith-ar">طلب العلم فريضة على كل مسلم</p>
+          <p class="hadith-id"><b>“Menuntut ilmu itu wajib bagi setiap Muslim.”</b></p>
+          <p class="hadith-ref">(HR. Ibnu Majah)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats">
+      <h2 class="section-title">Prestasi Diniyyah</h2>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="count" data-target="300">0</div><p>Santri Hafidz 30 Juz</p></div>
+        <div class="stat-box"><div class="count" data-target="120">0</div><p>Santri Mahir Hadits</p></div>
+        <div class="stat-box"><div class="count" data-target="25">0</div><p>Kitab Turats Dibahas</p></div>
+      </div>
+    </section>
+  </div><!-- /container -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Penyusawan</p>
+          <p><i class="fas fa-phone"></i> 0000000000000</p>
+          <p><i class="fas fa-envelope"></i> info@mahmudmarzukipenyusaawan.org</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <div class="foot-links">
+            <a href="Main.html"><i class="fas fa-angle-right"></i> Tentang Kami</a>
+            <a href="academics.html"><i class="fas fa-angle-right"></i> Program Akademik</a>
+            <a href="islamic-studies.html"><i class="fas fa-angle-right"></i> Studi Islam</a>
+            <a href="admissions.html"><i class="fas fa-angle-right"></i> Admisi</a>
+          </div>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <div class="foot-links">
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2025 Mahmud Marzuki Penyusawan. Semua hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- ============== JavaScript ============== -->
+  <script>
+    /* === smooth-scroll untuk anchor === */
+    document.querySelectorAll('a[href^=\"#\"]').forEach(a=>{
+      a.onclick=e=>{
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      };
+    });
+
+    /* === reveal on scroll (subjects, hadith, stats) === */
+    const revealObs=new IntersectionObserver(ents=>{
+      ents.forEach(ent=>{
+        if(ent.isIntersecting){
+          ent.target.classList.add('show');
+          revealObs.unobserve(ent.target);
+        }
+      });
+    },{threshold:.2});
+
+    document.querySelectorAll('.sub-card,.hadith-card,.stat-box').forEach(el=>revealObs.observe(el));
+
+    /* === animated counters === */
+    const counterObs=new IntersectionObserver(ents=>{
+      ents.forEach(ent=>{
+        if(ent.isIntersecting){
+          const el=ent.target,tgt=+el.dataset.target,step=Math.ceil(tgt/100);let cur=0;
+          const inc=()=>{cur+=step;el.textContent=cur>=tgt?tgt:cur;cur<tgt&&requestAnimationFrame(inc);};
+          requestAnimationFrame(inc);
+          counterObs.unobserve(el);
+        }
+      });
+    },{threshold:.6});
+    document.querySelectorAll('.count').forEach(el=>counterObs.observe(el));
+
+    /* === copy hadith to clipboard === */
+    const toast=document.createElement('div');
+    toast.className='copy-toast';toast.textContent='Disalin!';
+    document.body.appendChild(toast);
+
+    function showToast(){
+      toast.style.opacity='1';
+      setTimeout(()=>toast.style.opacity='0',1500);
+    }
+
+    document.querySelectorAll('.copy-btn').forEach(btn=>{
+      btn.onclick=()=>{
+        const card=btn.parentElement;
+        const text=[...card.querySelectorAll('.hadith-ar,.hadith-id,.hadith-ref')].map(e=>e.textContent.trim()).join('\\n');
+        navigator.clipboard.writeText(text).then(showToast);
+      };
+    });
+  </script>
+</body>
+</html>
