@@ -1,0 +1,32 @@
+{
+    "newsCarousel": [
+      {
+        "id": 1,
+        "title": "Pemprov DKI Jakarta Resmi Luncurkan Program Transportasi Terintegrasi",
+        "summary": "Program ini akan menghubungkan berbagai moda transportasi seperti MRT, LRT, TransJakarta, dan angkutan umum lainnya.",
+        "imageUrl": "assets/images/berita1.jpg",
+        "publishedAt": "2025-04-30T10:00:00Z",
+        "source": "Berita Jakarta",
+        "url": "berita/transportasi-terintegrasi.html"
+      },
+      {
+        "id": 2,
+        "title": "Cuaca Ekstrem Landa Jabodetabek, Warga Diminta Waspada",
+        "summary": "BMKG mengimbau masyarakat untuk menghindari aktivitas luar ruang pada jam-jam tertentu.",
+        "imageUrl": "assets/images/berita2.jpg",
+        "publishedAt": "2025-04-29T18:30:00Z",
+        "source": "Kompas",
+        "url": "berita/cuaca-ekstrem-jabodetabek.html"
+      },
+      {
+        "id": 3,
+        "title": "Festival Kuliner Betawi Digelar di Monas Pekan Ini",
+        "summary": "Lebih dari 100 UMKM kuliner hadir menawarkan hidangan khas Betawi kepada pengunjung.",
+        "imageUrl": "assets/images/berita3.jpg",
+        "publishedAt": "2025-04-28T14:15:00Z",
+        "source": "Detik",
+        "url": "berita/festival-kuliner-betawi.html"
+      }
+    ]
+  }
+  
