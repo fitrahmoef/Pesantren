@@ -37,7 +37,7 @@
     /* ---------- hero ---------- */
     .hero{position:relative;height:100vh;overflow:hidden;}
     .hero::after{content:\"\";position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:1;}
-    .hero-vid{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100vw;height:100vh;object-fit:cover;pointer-events:none;border:none;}
+    .hero-vid{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100vw;height:100vh;object-fit:cover;pointer-events:none;border:none; }
     @media(min-aspect-ratio:16/9){.hero-vid{height:56.25vw}}
     @media(max-aspect-ratio:16/9){.hero-vid{width:177.78vh}}
     .hero-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;color:#fff;width:90%;max-width:800px;}
@@ -111,7 +111,12 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="about">
-      <iframe class="hero-vid" src="https://www.youtube.com/embed/UEij0TwamLg?autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=UEij0TwamLg" allow="autoplay"></iframe>
+      <iframe class="hero-vid" width="560" height="315"
+      src="https://www.youtube.com/embed/xr-QOZvYQjk?autoplay=1&loop=1&playlist=xr-QOZvYQjk&mute=1&controls=0&rel=0&start=64"
+      title="YouTube video player"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen></iframe>
       <div class="hero-text">
         <h1>Selamat Datang</h1>
         <p>Wadah Ilmu Pengetahuan, Iman Kuat &amp; Pendidikan Karakter</p>
