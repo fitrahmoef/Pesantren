@@ -1,10 +1,10 @@
 /* Reset CSS */
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-} */
+}
 /* Color palette */
 :root{
     --primary-blue: #1a75ff;
@@ -13,5 +13,64 @@
     --white: #ffffff;
     --dark-blue: #0d47a1;
     --light-blue: #e3f2fd;
-            --gray: #f5f5f5;
+    --gray: #f5f5f5;
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-container{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--primary-yellow);
+    overflow: hidden;
+}
+
+.logo-img{
+    max-width: 85%;
+    max-height: 85%;
+}
+
+/* Navigation Grid */
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.nav-button {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-button:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button i {
+    font-size: 24px;
+    margin-bottom: 8px;
 }
