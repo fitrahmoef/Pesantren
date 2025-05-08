@@ -112,3 +112,11 @@
     grid-row: 3;
     grid-column: 2;
 }
+
+/* ---------- footer ---------- */
+footer{background:var(--dark-blue);color:#fff;padding:40px 0 20px;margin-top:60px;}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;}
+.foot-grid h3{color:var(--primary-yellow);margin-bottom:16px;border-bottom:1px solid var(--primary-yellow);padding-bottom:8px;}
+.foot-links a{display:block;color:#fff;text-decoration:none;margin-bottom:10px;transition:.3s;}
+.foot-links a:hover{color:var(--primary-yellow);transform:translateX(6px);}
+.copyright{text-align:center;margin-top:28px;font-size:.9rem;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;}

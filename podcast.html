@@ -107,5 +107,90 @@
             </iframe>
         </div>
      </div>
+
+     <!-- ===== FOOTER ===== -->
+  <footer id="calendar">
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Penyusawan</p>
+          <p><i class="fas fa-phone"></i> 0000000000000</p>
+          <p><i class="fas fa-envelope"></i> info@mahmudmarzukipenyusaawan.org</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <div class="foot-links">
+            <a href="#about"><i class="fas fa-angle-right"></i> Tentang Kami</a>
+            <a href="academics.html"><i class="fas fa-angle-right"></i> Program Akademik</a>
+            <a href="islamic-studies.html"><i class="fas fa-angle-right"></i> Studi Islam</a>
+            <a href="admissions.html"><i class="fas fa-angle-right"></i> Admisi</a>
+          </div>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <div class="foot-links">
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2025 Mahmud Marzuki Penyusawan. Semua hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- ============== JavaScript ============== -->
+  <script>
+    /* === header shrink === */
+    const header=document.getElementById('header');
+    window.addEventListener('scroll',()=>header.classList.toggle('shrink',window.scrollY>120));
+
+    /* === smooth-scroll untuk anchor internal === */
+    document.querySelectorAll('a[href^=\"#\"]').forEach(a=>{
+      a.onclick=e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){e.preventDefault();document.querySelector(id).scrollIntoView({behavior:'smooth'});}
+      };
+    });
+
+    /* === intersection reveal === */
+    const revealObs=new IntersectionObserver(ents=>{
+      ents.forEach(ent=>{
+        if(ent.isIntersecting){ent.target.classList.add('show');revealObs.unobserve(ent.target);}
+      });
+    },{threshold:.2});
+    document.querySelectorAll('.info-box,.news-box,.feat-box').forEach(el=>revealObs.observe(el));
+
+    /* === nav active highlight saat scroll === */
+    const sections=[...document.querySelectorAll('section[id],div[id]')];
+    const navBtns=[...document.querySelectorAll('.nav-btn')];
+    const navObs=new IntersectionObserver(ents=>{
+      ents.forEach(ent=>{
+        if(ent.isIntersecting){
+          navBtns.forEach(btn=>btn.classList.remove('active'));
+          const btn=navBtns.find(b=>b.getAttribute('href')==='#'+ent.target.id);
+          btn&&btn.classList.add('active');
+        }
+      });
+    },{threshold:.6});
+    sections.forEach(sec=>navObs.observe(sec));
+
+    /* === back-to-top button === */
+    const topBtn=document.getElementById('topBtn');
+    window.addEventListener('scroll',()=>topBtn.classList.toggle('show',window.scrollY>400));
+    topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+
+    /* === video modal === */
+    const modal=document.getElementById('videoModal'),iframe=document.getElementById('modalIframe');
+    document.getElementById('openVideo').onclick=()=>{
+      iframe.src='https://www.youtube.com/embed/UEij0TwamLg?autoplay=1';
+      modal.classList.add('active');
+    };
+    document.getElementById('closeModal').onclick=closeModal;
+    function closeModal(){modal.classList.remove('active');iframe.src='';}
+    modal.addEventListener('click',e=>e.target===modal&&closeModal());
+    document.addEventListener('keydown',e=>e.key==='Escape'&&modal.classList.contains('active')&&closeModal());
+  </script>
 </body>
 </html>
