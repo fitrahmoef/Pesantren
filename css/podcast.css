@@ -15,30 +15,40 @@
     --light-blue: #e3f2fd;
     --gray: #f5f5f5;
 }
+body {
+    background: var(--white);
+    scroll-behavior: smooth;
+  }
+  
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
+  }
+header {
+    background: var(--light-blue);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+  }
+  
 .logo-container{
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    background-color: var(--white);
+    width: 180px;
+    height: 180px;
+    border: 5px solid var(--primary-yellow);
     border-radius: 50%;
+    overflow: hidden;
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    border: 5px solid var(--primary-yellow);
-    overflow: hidden;
+    box-shadow: 0 0 14px rgba(0, 0, 0, .1);
+    margin: 0 auto;
 }
 
 .logo-img{
     max-width: 85%;
-    max-height: 85%;
 }
 
 /* Navigation Grid */
@@ -114,9 +124,45 @@
 }
 
 /* ---------- footer ---------- */
-footer{background:var(--dark-blue);color:#fff;padding:40px 0 20px;margin-top:60px;}
-.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;}
-.foot-grid h3{color:var(--primary-yellow);margin-bottom:16px;border-bottom:1px solid var(--primary-yellow);padding-bottom:8px;}
-.foot-links a{display:block;color:#fff;text-decoration:none;margin-bottom:10px;transition:.3s;}
-.foot-links a:hover{color:var(--primary-yellow);transform:translateX(6px);}
-.copyright{text-align:center;margin-top:28px;font-size:.9rem;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;}
+footer {
+    background: var(--dark-blue);
+    color: #fff;
+    padding: 40px 0 20px;
+    margin-top: 60px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+  
+.foot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+  }
+  
+.foot-grid h3 {
+    color: var(--primary-yellow);
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--primary-yellow);
+    padding-bottom: 8px;
+  }
+  
+.foot-links a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: .3s;
+}
+  
+.foot-links a:hover {
+    color: var(--primary-yellow);
+    transform: translateX(6px);
+}
+  
+.copyright {
+    text-align: center;
+    margin-top: 28px;
+    font-size: .9rem;
+    border-top: 1px solid rgba(255, 255, 255, .15);
+    padding-top: 20px;
+}
