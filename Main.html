@@ -83,19 +83,19 @@
               <h3 id="judul-4"></h3>
               <p class="news-date" id="tanggal-4"></p>
               <p id="caption-4"></p>
-              <a id="link-4" href="https://www.suaramuhammadiyah.id/read/pesantren-muhammadiyah-mahmud-marzuki-wujudkan-sinergi-global" target="_blank" class="news-link">Baca Selengkapnya</a>
+              <a id="link-4" href="" target="_blank" class="news-link">Baca Selengkapnya</a>
             </div>
             <div class="news-slide">
               <h3 id="judul-5"></h3>
               <p class="news-date" id="tanggal-5"></p>
               <p id="caption-5"></p>
-              <a id="link-5" href="https://www.suaramuhammadiyah.id/read/majelis-tarjih-dan-tajdid-pdm-kuansing-sosialisasikan-khgt" target="_blank" class="news-link">Baca Selengkapnya</a>
+              <a id="link-5" href="" target="_blank" class="news-link">Baca Selengkapnya</a>
             </div>
             <div class="news-slide">
               <h3 id="judul-6"></h3>
               <p class="news-date" id="tanggal-6"></p>
               <p id="caption-6"></p>
-              <a id="link-6" href="https://www.suaramuhammadiyah.id/read/resmi-terbit-izin-operasional-pesantren-muhammadiyah-mahmud-marzuki-penyasawan" target="_blank" class="news-link">Baca Selengkapnya</a>
+              <a id="link-6" href="" target="_blank" class="news-link">Baca Selengkapnya</a>
             </div>
           </div>
         </div>
@@ -301,7 +301,7 @@
         kumpulanCaption[index].innerHTML = `${data.data[index].caption}`;
         //link
         if(index >= 3){
-          kumpulanLink[index].setAttribute("href", `${data.data[index].title}`);
+          kumpulanLink[index].href = `${data.data[index].link}`;
         }
       }
     })
