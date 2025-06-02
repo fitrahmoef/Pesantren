@@ -65,37 +65,37 @@
         <div class="news-slider">
           <div class="news-slides">
             <div class="news-slide">
-              <h3>Informasi Tahunan</h3>
-              <p class="news-date">3 Maret 2025</p>
-              <p>Pendaftaran santri baru dibuka—fasilitas bersaing skala internasional.</p>
+              <h3 id="judul-1"></h3>
+              <p class="news-date" id="tanggal-1"></p>
+              <p id="caption-1"></p>
             </div>
             <div class="news-slide">
-              <h3>Persiapan Ramadhan</h3>
-              <p class="news-date">28 Februari 2025</p>
-              <p>Buka bersama gratis 100 porsi tiap hari untuk umum.</p>
+              <h3 id="judul-2"></h3>
+              <p class="news-date" id="tanggal-2"></p>
+              <p id="caption-2"></p>
             </div>
             <div class="news-slide">
-              <h3>Prestasi Akademik</h3>
-              <p class="news-date">15 Februari 2025</p>
-              <p>Santri raih emas Olimpiade Sains Nasional bidang Fisika.</p>
+              <h3 id="judul-3"></h3>
+              <p class="news-date" id="tanggal-3"></p>
+              <p id="caption-3"></p>
             </div>
             <div class="news-slide">
-              <h3>Sinergi Global Pesantren</h3>
-              <p class="news-date">Tanggal Tidak Tersedia</p>
-              <p>Pesantren Penyasawan menjalin kerja sama internasional untuk pendidikan.</p>
-              <a href="https://www.suaramuhammadiyah.id/read/pesantren-muhammadiyah-mahmud-marzuki-wujudkan-sinergi-global" target="_blank" class="news-link">Baca Selengkapnya</a>
+              <h3 id="judul-4"></h3>
+              <p class="news-date" id="tanggal-4"></p>
+              <p id="caption-4"></p>
+              <a id="link-4" href="https://www.suaramuhammadiyah.id/read/pesantren-muhammadiyah-mahmud-marzuki-wujudkan-sinergi-global" target="_blank" class="news-link">Baca Selengkapnya</a>
             </div>
             <div class="news-slide">
-              <h3>Sosialisasi KHGT Kuansing</h3>
-              <p class="news-date">Tanggal Tidak Tersedia</p>
-              <p>PDM Kuansing sosialisasikan Kalender Hijriah Global untuk ibadah.</p>
-              <a href="https://www.suaramuhammadiyah.id/read/majelis-tarjih-dan-tajdid-pdm-kuansing-sosialisasikan-khgt" target="_blank" class="news-link">Baca Selengkapnya</a>
+              <h3 id="judul-5"></h3>
+              <p class="news-date" id="tanggal-5"></p>
+              <p id="caption-5"></p>
+              <a id="link-5" href="https://www.suaramuhammadiyah.id/read/majelis-tarjih-dan-tajdid-pdm-kuansing-sosialisasikan-khgt" target="_blank" class="news-link">Baca Selengkapnya</a>
             </div>
             <div class="news-slide">
-              <h3>Izin Operasional Pesantren</h3>
-              <p class="news-date">Tanggal Tidak Tersedia</p>
-              <p>Pesantren Penyasawan resmi dapat izin operasional pendidikan.</p>
-              <a href="https://www.suaramuhammadiyah.id/read/resmi-terbit-izin-operasional-pesantren-muhammadiyah-mahmud-marzuki-penyasawan" target="_blank" class="news-link">Baca Selengkapnya</a>
+              <h3 id="judul-6"></h3>
+              <p class="news-date" id="tanggal-6"></p>
+              <p id="caption-6"></p>
+              <a id="link-6" href="https://www.suaramuhammadiyah.id/read/resmi-terbit-izin-operasional-pesantren-muhammadiyah-mahmud-marzuki-penyasawan" target="_blank" class="news-link">Baca Selengkapnya</a>
             </div>
           </div>
         </div>
@@ -259,14 +259,53 @@
       showSlide(currentSlide);
     }, 5000);
 
-    // JSON buat berita
-    fetch("./data/news.json")
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.error(err))
-
     // DOM Berita
+    const judul1 = document.getElementById("judul-1");
+    const judul2 = document.getElementById("judul-2");
+    const judul3 = document.getElementById("judul-3");
+    const judul4 = document.getElementById("judul-4");
+    const judul5 = document.getElementById("judul-5");
+    const judul6 = document.getElementById("judul-6");
+    const tanggal1 = document.getElementById("tanggal-1");
+    const tanggal2 = document.getElementById("tanggal-2");
+    const tanggal3 = document.getElementById("tanggal-3");
+    const tanggal4 = document.getElementById("tanggal-4");
+    const tanggal5 = document.getElementById("tanggal-5");
+    const tanggal6 = document.getElementById("tanggal-6");
+    const caption1 = document.getElementById("caption-1");
+    const caption2 = document.getElementById("caption-2");
+    const caption3 = document.getElementById("caption-3");
+    const caption4 = document.getElementById("caption-4");
+    const caption5 = document.getElementById("caption-5");
+    const caption6 = document.getElementById("caption-6");
+    const link4 = document.getElementById("link-4");
+    const link5 = document.getElementById("link-5");
+    const link6 = document.getElementById("link-6");
     
+    const kumpulanJudul = [judul1,judul2,judul3,judul4,judul5,judul6];
+    const kumpulanTanggal = [tanggal1,tanggal2,tanggal3,tanggal4,tanggal5,tanggal6];
+    const kumpulanCaption = [caption1,caption2,caption3,caption4,caption5,caption6];
+    const kumpulanLink = ["","","",link4,link5,link6];
+
+        // JSON buat berita
+    fetch("./data/news.json")
+    .then((res) => res.json()) // ambil JSON dan diconvert
+    // datanya dipake
+    .then((data) => {
+      for (let index = 0; index < data.data.length; index++) {
+        //judul
+        kumpulanJudul[index].innerHTML = `${data.data[index].title}`;
+        //tanggal
+        kumpulanTanggal[index].innerHTML = `${data.data[index].tanggal}`;
+        //caption
+        kumpulanCaption[index].innerHTML = `${data.data[index].caption}`;
+        //link
+        if(index >= 3){
+          kumpulanLink[index].setAttribute("href", `${data.data[index].title}`);
+        }
+      }
+    })
+    .catch((err) => console.error(err))
 
   </script>
 </body>
