@@ -1,0 +1,35 @@
+{
+    "newsArticles": [
+      {
+        "id": 1,
+        "title": "Pesantren Mahmud Marzuki",
+        "summary": "Telah mendapatkan pesantren dengan model terbaik di Indonesia hanya contoh",
+        "content": "<p>Pesantren dengan role model terbaru</p>",
+        "imageUrl": "assets/images/berita1.jpg",
+        "publishedAt": "2025-04-30T10:00:00Z",
+        "source": "Berita Jakarta",
+        "slug": "transportasi-terintegrasi"
+      },
+      {
+        "id": 2,
+        "title": "Rangkaian kegiatan terbaru untuk santri dan santriwati",
+        "summary": "beberapa semua yang telah kita harapken telah terjadi",
+        "content": "<p>Badan yang telah menangania semuanya telah mendapat hibah dari pesantren</p>",
+        "imageUrl": "assets/images/berita2.jpg",
+        "publishedAt": "2025-04-29T18:30:00Z",
+        "source": "Kompas",
+        "slug": "cuaca-ekstrem-jabodetabek"
+      },
+      {
+        "id": 3,
+        "title": "Penerimaan santri baru telah kunjung usai",
+        "summary": "Lebih dari 100 UMKM kuliner hadir menawarkan hidangan khas Betawi kepada pengunjung.",
+        "content": "<p>Banyak pendaftar yang mendaftarakan diri dan penerimaan murid baru</p>",
+        "imageUrl": "assets/images/berita3.jpg",
+        "publishedAt": "2025-04-28T14:15:00Z",
+        "source": "Detik",
+        "slug": "festival-kuliner-betawi"
+      }
+    ]
+  }
+  
