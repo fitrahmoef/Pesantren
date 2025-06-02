@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admisi | Pondok Pesantren Mahmud Marzuki Penyusawan</title>
+  <link rel="stylesheet" href="css/admission.css">
+
+
+  <!-- ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="container">
+      <div class="header-flex">
+        <div class="logo"><img src="https://media-hosting.imagekit.io//08ea0aa2b86b45b3/c0a04346-1924-4d34-b66f-264de378d327.jpg?Expires=1835874188&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XCy6xAnh8i-MkpspFbB4det~5sCPsTrEoxSoTgO9SZC2zbUh8rOYHthWOcpGLbFZfq0N6GtO9RW6PVt9ltOT8VYlUeAhF2CAVmP8vMVdRctpciTQa9jnkfPSATRdNYHL5-fLoI-LBanADmj4xwdmNsBol0YrxaLhKmOKbhOcSQL2f9Hnv~MUJLRQwmq~Hg9ehHKL5nXHNHb9WUOsgp-abUSCO1RUR8etdS9xFP4X2k0ODvI7Qsk-Fl7qrOWChimw1LGkapbOTjCwfWzhdy8S6q28foPnTrp1kycYanFKSZQbWx-rSmfSyPvL-ct7AYBbryOYQliILuaCEN5D7HjR9A__" alt="Logo" /></div>
+        <div class="logo-text">
+          <h1>Pondok Pesantren Mahmud Marzuki</h1>
+          <h2>Penyusawan</h2>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- ===== NAV ===== -->
+   <nav class="nav-grid">
+      <a class="nav-btn active" href="#about"><i class="fas fa-info-circle"></i>Tentang&nbsp;Kami</a>
+      <a class="nav-btn" href="history.html"><i class="fas fa-history"></i>Sejarah</a>
+      <a class="nav-btn" href="academics.html"><i class="fas fa-book"></i>Program&nbsp;Akademik</a>
+      <a class="nav-btn" href="intensivetraining.html"><i class="fas fa-mosque"></i>Pembinaan&nbsp;Intensif</a>
+      <a class="nav-btn" href="calendar.html"><i class="fas fa-calendar-alt"></i>Kalender</a>
+      <a class="nav-btn" href="admissions.html"><i class="fas fa-user-graduate"></i>Admisi</a>
+      <a href="podcast.html" class="nav-btn"><i class="fa-solid fa-podcast"></i>Podcast</a>
+    </nav>
+
+    <!-- ===== HERO SIMPLE ===== -->
+    <section class="hero-simple">
+      <h1>Penerimaan Santri Baru</h1>
+      <p>Tahun Ajaran 2025/2026 • Pondok Pesantren Mahmud Marzuki Penyusawan</p>
+    </section>
+
+    <!-- ===== STEP PROGRESS ===== -->
+    <section id="steps">
+      <div class="step-bar">
+        <div class="step active"><div class="step-circle">1</div><span>Registrasi</span></div>
+        <div class="step"><div class="step-circle">2</div><span>Verifikasi</span></div>
+        <div class="step"><div class="step-circle">3</div><span>Tes Seleksi</span></div>
+        <div class="step"><div class="step-circle">4</div><span>Pengumuman</span></div>
+        <div class="step"><div class="step-circle">5</div><span>Daftar Ulang</span></div>
+      </div>
+
+      <!-- ACCORDION DETAIL -->
+      <div class="acc-item">
+        <div class="acc-head"><h3>1. Registrasi Online</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Buka portal admisi, isi formulir, dan unggah dokumen identitas.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head"><h3>2. Verifikasi Berkas</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Panitia mengecek kelengkapan berkas. Status dapat dipantau di dashboard.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head"><h3>3. Tes Seleksi</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Tes meliputi kemampuan akademik dasar, baca Qur’an, dan wawancara.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head"><h3>4. Pengumuman</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Hasil diumumkan di website &amp; email. Santri diterima melanjutkan ke tahap berikutnya.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head"><h3>5. Daftar Ulang</h3><i class="fas fa-chevron-down"></i></div>
+        <div class="acc-content"><p>Pembayaran infaq pendidikan, pengukuran seragam, dan penandatanganan surat komitmen.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FORM ===== -->
+    <section id="apply">
+      <h2>Formulir Pendaftaran Singkat</h2>
+      <form id="admissionForm" novalidate>
+        <div class="form-group">
+          <label for="name">Nama Lengkap *</label>
+          <input type="text" id="name" required>
+          <span class="err-msg">Nama wajib diisi.</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" required>
+          <span class="err-msg">Email tidak valid.</span>
+        </div>
+        <div class="form-group">
+          <label for="phone">No. HP *</label>
+          <input type="tel" id="phone" required>
+          <span class="err-msg">Nomor HP wajib diisi.</span>
+        </div>
+        <div class="form-group">
+          <label for="level">Jenjang *</label>
+          <select id="level" required>
+            <option value="">--Pilih--</option>
+            <option>Madrasah Tsanawiyah</option>
+            <option>Madrasah Aliyah IPA</option>
+            <option>Madrasah Aliyah IPS</option>
+          </select>
+          <span class="err-msg">Silakan pilih jenjang.</span>
+        </div>
+        <button type="submit" class="btn-submit">Kirim Pendaftaran</button>
+        <div class="progress"><div class="progress-bar"></div></div>
+      </form>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats">
+      <div class="stat-box"><div class="count" data-target="300">0</div><p>Kuota Kursi</p></div>
+      <div class="stat-box"><div class="count" data-target="125">0</div><p>Pendaftar Saat Ini</p></div>
+      <div class="stat-box"><div class="count" data-target="5">0</div><p>Hari ke Tes Gelombang 1</p></div>
+    </section>
+  </div><!-- /container -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Penyusawan</p>
+          <p><i class="fas fa-phone"></i> 0000000000000</p>
+          <p><i class="fas fa-envelope"></i> info@mahmudmarzukipenyusaawan.org</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <div class="foot-links">
+            <a href="Main.html"><i class="fas fa-angle-right"></i> Tentang Kami</a>
+            <a href="academics.html"><i class="fas fa-angle-right"></i> Program Akademik</a>
+            <a href="islamic-studies.html"><i class="fas fa-angle-right\"></i> Studi Islam</a>
+            <a href="admissions.html"><i class="fas fa-angle-right"></i> Admisi</a>
+          </div>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <div class="foot-links">
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2025 Mahmud Marzuki Penyusawan. Semua hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- ============ JavaScript ============ -->
+  <script>
+    /* header shrink */
+    const header=document.getElementById('header');
+    window.addEventListener('scroll',()=>header.classList.toggle('shrink',window.scrollY>120));
+
+    /* accordion */
+    document.querySelectorAll('.acc-item').forEach(acc=>{
+      acc.querySelector('.acc-head').onclick=()=>{
+        acc.classList.toggle('open');
+      };
+    });
+
+    /* form validation */
+    const form=document.getElementById('admissionForm');
+    const progress=document.querySelector('.progress');
+    const bar=document.querySelector('.progress-bar');
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      let valid=true;
+      form.querySelectorAll('[required]').forEach(inp=>{
+        const err=inp.nextElementSibling;
+        if(!inp.value.trim()||(inp.type==='email'&&!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(inp.value))){
+          inp.classList.add('error');
+          err.style.display='block';
+          valid=false;
+        }else{inp.classList.remove('error');err.style.display='none';}
+      });
+      if(!valid)return;
+      progress.style.display='block';
+      bar.style.width='0';
+      let w=0;
+      const int=setInterval(()=>{w+=10;bar.style.width=w+'%';if(w>=100){clearInterval(int);alert('Pendaftaran terkirim!');form.reset();progress.style.display='none';}},120);
+    });
+
+    /* step bar highlight ketika accordion dibuka */
+    const steps=document.querySelectorAll('.step');
+    document.querySelectorAll('.acc-item').forEach((acc,i)=>{
+      acc.querySelector('.acc-head').addEventListener('click',()=>{
+        steps.forEach(s=>s.classList.remove('active'));
+        steps[i].classList.add('active');
+      });
+    });
+
+    /* counter animation */
+    const countObs=new IntersectionObserver(ents=>{
+      ents.forEach(ent=>{
+        if(ent.isIntersecting){
+          const el=ent.target,tgt=+el.dataset.target,step=Math.ceil(tgt/100);let cur=0;
+          const inc=()=>{cur+=step;el.textContent=cur>=tgt?tgt:cur;cur<tgt&&requestAnimationFrame(inc);};
+          requestAnimationFrame(inc);countObs.unobserve(el);
+        }
+      });
+    },{threshold:.6});
+    document.querySelectorAll('.count').forEach(el=>countObs.observe(el));
+  </script>
+</body>
+</html>
