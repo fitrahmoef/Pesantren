@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sejarah - Pondok Pesantren Mahmud Marzuki Penyusawan</title>
+  <title>Kalender Akademik - Pondok Pesantren Mahmud Marzuki Penyusawan</title>
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,6 +27,8 @@
       --gray-dark: #666;
       --text-dark: #333;
       --border-color: #eee;
+      --holiday-red: #ff5252;
+      --event-green: #4caf50;
       --font-primary: 'Poppins', sans-serif;
       --font-arabic: 'Amiri', serif;
       --transition: all 0.3s ease;
@@ -392,7 +394,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('https://source.unsplash.com/random/1600x900/?mosque,islamic,history') no-repeat center center/cover;
+      background: url('https://source.unsplash.com/random/1600x900/?calendar,islamic') no-repeat center center/cover;
       opacity: 0.3;
       z-index: 0;
     }
@@ -415,237 +417,416 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 
-    /* Timeline Section */
-    .timeline-section {
+    /* Calendar Section */
+    .calendar-section {
       padding: 80px 0;
-      background-color: var(--gray-light);
+      background: var(--white);
     }
     
-    .timeline {
-      position: relative;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 0;
-    }
-    
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: var(--primary-blue);
-      left: 50%;
-      margin-left: -2px;
-      border-radius: 2px;
-    }
-    
-    .timeline-item {
-      position: relative;
-      margin-bottom: 60px;
-    }
-    
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-    
-    .timeline-content {
-      position: relative;
-      width: 45%;
-      padding: 30px;
+    .calendar-container {
       background: var(--white);
       border-radius: 15px;
+      padding: 30px;
       box-shadow: var(--box-shadow);
-      transition: var(--transition);
     }
     
-    .timeline-content:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
     }
     
-    .timeline-content::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      width: 20px;
-      height: 20px;
-      background: var(--white);
-      transform: rotate(45deg);
+    .calendar-title {
+      font-size: 1.8rem;
+      color: var(--dark-blue);
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
     
-    .timeline-item:nth-child(odd) .timeline-content {
-      float: left;
+    .calendar-nav {
+      display: flex;
+      gap: 15px;
     }
     
-    .timeline-item:nth-child(odd) .timeline-content::before {
-      right: -10px;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-content {
-      float: right;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-content::before {
-      left: -10px;
-    }
-    
-    .timeline-year {
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      background: var(--primary-yellow);
+    .calendar-nav button {
+      width: 45px;
+      height: 45px;
+      background: var(--light-blue);
+      border: none;
       border-radius: 50%;
-      top: 0;
+      font-size: 18px;
+      color: var(--primary-blue);
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--dark-blue);
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-year {
-      right: calc(45% - 35px);
-    }
-    
-    .timeline-item:nth-child(even) .timeline-year {
-      left: calc(45% - 35px);
-    }
-    
-    .timeline-content h3 {
-      color: var(--primary-blue);
-      margin-bottom: 10px;
-      font-size: 1.3rem;
-    }
-    
-    .timeline-content p {
-      margin-bottom: 0;
-      color: var(--text-dark);
-    }
-    
-    .timeline-clearfix::after {
-      content: '';
-      display: table;
-      clear: both;
-    }
-
-    /* Stats Section */
-    .stats-section {
-      padding: 60px 0;
-      background: var(--light-blue);
-    }
-    
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      text-align: center;
-    }
-    
-    .stat-card {
-      background: var(--white);
-      padding: 30px 20px;
-      border-radius: 15px;
-      box-shadow: var(--box-shadow);
       transition: var(--transition);
     }
     
-    .stat-card:hover {
+    .calendar-nav button:hover {
+      background: var(--primary-blue);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+    
+    .calendar-day-name {
+      text-align: center;
+      font-weight: 700;
+      color: var(--dark-blue);
+      padding: 10px;
+      background: var(--light-blue);
+      border-radius: 8px;
+    }
+    
+    .calendar-day {
+      height: 100px;
+      border-radius: 8px;
+      background: var(--gray-light);
+      padding: 10px;
+      position: relative;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    
+    .calendar-day:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .day-number {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text-dark);
+    }
+    
+    .calendar-day.other-month {
+      opacity: 0.5;
+    }
+    
+    .calendar-day.today {
+      background: var(--light-blue);
+      border: 2px solid var(--primary-blue);
+    }
+    
+    .calendar-day.has-event::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--event-green);
+    }
+    
+    .calendar-day.holiday::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--holiday-red);
+    }
+    
+    .event-list {
+      margin-top: 5px;
+      max-height: 60px;
+      overflow: hidden;
+    }
+    
+    .event-item {
+      font-size: 0.7rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 2px 5px;
+      margin-bottom: 2px;
+      border-radius: 3px;
+    }
+    
+    .event-item.holiday {
+      background: rgba(255, 82, 82, 0.1);
+      color: var(--holiday-red);
+    }
+    
+    .event-item.event {
+      background: rgba(76, 175, 80, 0.1);
+      color: var(--event-green);
+    }
+    
+    .calendar-legend {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .legend-dot.holiday {
+      background: var(--holiday-red);
+    }
+    
+    .legend-dot.event {
+      background: var(--event-green);
+    }
+
+    /* Upcoming Events */
+    .events-section {
+      padding: 80px 0;
+      background: var(--gray-light);
+    }
+    
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .event-card {
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .event-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .event-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
     
-    .stat-value {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--primary-blue);
-      margin-bottom: 10px;
-      font-family: var(--font-arabic);
-    }
-    
-    .stat-label {
-      color: var(--dark-blue);
-      font-weight: 600;
-    }
-
-    /* History Content Section */
-    .history-content-section {
-      padding: 80px 0;
-      background: var(--white);
-    }
-    
-    .history-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    
-    .history-text {
-      padding: 30px;
-    }
-    
-    .history-text h2 {
-      color: var(--dark-blue);
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-    
-    .history-text p {
-      margin-bottom: 15px;
-      color: var(--text-dark);
-      line-height: 1.8;
-    }
-    
-    .history-text ul {
-      margin-left: 20px;
-      margin-bottom: 20px;
-    }
-    
-    .history-text ul li {
-      margin-bottom: 10px;
+    .event-image {
+      height: 180px;
       position: relative;
+      overflow: hidden;
     }
     
-    .history-text ul li::before {
-      content: '';
-      position: absolute;
-      left: -20px;
-      top: 10px;
-      width: 8px;
-      height: 8px;
-      background: var(--primary-yellow);
-      border-radius: 50%;
-    }
-    
-    .history-image {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-    }
-    
-    .history-image::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      width: calc(100% - 40px);
-      height: calc(100% - 40px);
-      background: var(--primary-yellow);
-      opacity: 0.3;
-      z-index: -1;
-      border-radius: 15px;
-    }
-    
-    .history-image img {
+    .event-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .event-card:hover .event-image img {
+      transform: scale(1.05);
+    }
+    
+    .event-date {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 50px;
+      height: 60px;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .event-day {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      line-height: 1;
+    }
+    
+    .event-month {
+      font-size: 0.8rem;
+      color: var(--primary-blue);
+      text-transform: uppercase;
+    }
+    
+    .event-content {
+      padding: 20px;
+    }
+    
+    .event-title {
+      font-size: 1.3rem;
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+    }
+    
+    .event-meta {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      color: var(--gray-dark);
+      font-size: 0.9rem;
+    }
+    
+    .event-meta i {
+      color: var(--primary-blue);
+    }
+    
+    .event-description {
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    
+    .event-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--primary-blue);
+      color: var(--white);
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    
+    .event-btn:hover {
+      background: var(--dark-blue);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      width: 90%;
+      max-width: 500px;
+      background: var(--white);
       border-radius: 15px;
-      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      position: relative;
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
+    
+    .modal.active .modal-content {
+      transform: scale(1);
+    }
+    
+    .modal-header {
+      padding: 20px;
+      background: var(--primary-blue);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .modal-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 24px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .modal-close:hover {
+      color: var(--primary-yellow);
+    }
+    
+    .modal-body {
+      padding: 20px;
+    }
+    
+    .event-info {
+      margin-bottom: 20px;
+    }
+    
+    .event-info h3 {
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .event-info p {
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    
+    .event-date-full {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary-blue);
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .event-type {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .event-type.holiday {
+      background: rgba(255, 82, 82, 0.1);
+      color: var(--holiday-red);
+    }
+    
+    .event-type.event {
+      background: rgba(76, 175, 80, 0.1);
+      color: var(--event-green);
     }
     
     /* Footer */
@@ -894,27 +1075,8 @@
         font-size: 1.8rem;
       }
       
-      .history-content {
-        grid-template-columns: 1fr;
-      }
-      
-      .timeline::before {
-        left: 30px;
-      }
-      
-      .timeline-content {
-        width: calc(100% - 80px);
-        float: right;
-      }
-      
-      .timeline-item:nth-child(odd) .timeline-content::before,
-      .timeline-item:nth-child(even) .timeline-content::before {
-        left: -10px;
-      }
-      
-      .timeline-item:nth-child(odd) .timeline-year,
-      .timeline-item:nth-child(even) .timeline-year {
-        left: 0;
+      .calendar-day {
+        height: 80px;
       }
     }
     
@@ -965,15 +1127,27 @@
       .page-banner p {
         font-size: 1rem;
       }
-
-      .timeline-year {
-        width: 50px;
-        height: 50px;
+      
+      .calendar-day-name, .calendar-day {
+        font-size: 0.8rem;
+      }
+      
+      .calendar-day {
+        height: 70px;
+        padding: 5px;
+      }
+      
+      .day-number {
         font-size: 1rem;
       }
       
-      .timeline-content {
-        width: calc(100% - 60px);
+      .event-list {
+        max-height: 40px;
+      }
+      
+      .event-item {
+        font-size: 0.6rem;
+        padding: 1px 3px;
       }
       
       .footer-top, .footer-bottom {
@@ -1027,12 +1201,26 @@
         font-size: 1.5rem;
       }
       
-      .timeline-content {
-        padding: 20px;
+      .calendar-header {
+        flex-direction: column;
+        gap: 15px;
       }
       
-      .timeline-content h3 {
-        font-size: 1.1rem;
+      .calendar-grid {
+        gap: 5px;
+      }
+      
+      .calendar-day {
+        height: 60px;
+        padding: 3px;
+      }
+      
+      .day-number {
+        font-size: 0.9rem;
+      }
+      
+      .event-list {
+        display: none;
       }
     }
   </style>
@@ -1076,7 +1264,6 @@
   </header>
 
   <!-- Navigation -->
-  <!-- Navigation -->
   <div class="container">
     <nav class="nav-grid" id="mainNav">
       <a class="nav-btn active" href="#hero"><i class="fas fa-home"></i>Beranda</a>
@@ -1094,127 +1281,110 @@
   <section class="page-banner">
     <div class="container">
       <div class="page-banner-content">
-        <h1>Sejarah Pesantren</h1>
-        <p>Perjalanan Mahmud Marzuki Penyusawan dari 1980 hingga kini</p>
+        <h1>Kalender Akademik 2025/2026</h1>
+        <p>Pondok Pesantren Mahmud Marzuki Penyusawan</p>
       </div>
     </div>
   </section>
 
-  <!-- History Content Section -->
-  <section class="history-content-section">
+  <!-- Calendar Section -->
+  <section class="calendar-section">
     <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Asal Mula Pesantren</h2>
-        <span class="section-divider"></span>
-      </div>
-      
-      <div class="history-content">
-        <div class="history-text">
-          <h2>Visi Pendiri</h2>
-          <p>Pondok Pesantren Mahmud Marzuki Penyusawan didirikan pada tahun 1980 oleh KH. Mahmud Marzuki dengan visi yang jelas untuk membentuk generasi Muslim yang berpengetahuan luas, berakhlak mulia, dan mampu mengintegrasikan ilmu agama dengan sains modern.</p>
-          <p>Dengan kegelisahan akan semakin menurunnya kualitas pendidikan Islam di Indonesia saat itu, beliau mewakafkan tanah keluarga seluas 2 hektar untuk mendirikan sebuah lembaga pendidikan yang kini telah berkembang menjadi salah satu pesantren terkemuka di Indonesia.</p>
-          <p>Berawal dari hanya 20 santri penghafal Al-Qur'an, pesantren ini terus berkembang baik dari segi infrastruktur, kurikulum, maupun jumlah santri yang menuntut ilmu di dalamnya.</p>
-        </div>
-        <div class="history-image">
-          <img src="https://source.unsplash.com/random/600x700/?islamic,school,founder" alt="Pendiri Pesantren">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline Section -->
-  <section class="timeline-section">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Timeline Perkembangan</h2>
-        <span class="section-divider"></span>
-      </div>
-      
-      <div class="timeline">
-        <!-- 1980 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">1980</div>
-          <div class="timeline-content">
-            <h3>Pendirian</h3>
-            <p>Pondok didirikan oleh KH. Mahmud Marzuki di atas tanah wakaf keluarga seluas 2 hektar; berawal 20 santri dengan fokus Tahfidz.</p>
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <h2 class="calendar-title" id="monthYearTitle">Juli 2025</h2>
+          <div class="calendar-nav">
+            <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
           </div>
         </div>
         
-        <!-- 1990 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">1990</div>
-          <div class="timeline-content">
-            <h3>Perluasan Kurikulum</h3>
-            <p>Dibuka Madrasah Tsanawiyah & Aliyah; kurikulum nasional terintegrasi ilmu diniyyah untuk memenuhi kebutuhan pendidikan formal santri.</p>
-          </div>
+        <div class="calendar-grid" id="calendarGrid">
+          <!-- Days of the week will be inserted here via JavaScript -->
+          <!-- Calendar days will be inserted here via JavaScript -->
         </div>
         
-        <!-- 2005 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">2005</div>
-          <div class="timeline-content">
-            <h3>Digitalisasi</h3>
-            <p>Penerapan laboratorium komputer & perpustakaan digital pertama di kabupaten, menandai era baru pesantren yang adaptif terhadap perkembangan teknologi.</p>
+        <div class="calendar-legend">
+          <div class="legend-item">
+            <span class="legend-dot holiday"></span>
+            <span>Hari Libur</span>
           </div>
-        </div>
-        
-        <!-- 2012 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">2012</div>
-          <div class="timeline-content">
-            <h3>Akreditasi A</h3>
-            <p>Mendapat Akreditasi A BAN-SM untuk semua jenjang & menjadi sekolah rujukan bagi pengembangan lembaga pendidikan Islam di Indonesia.</p>
-          </div>
-        </div>
-        
-        <!-- 2018 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">2018</div>
-          <div class="timeline-content">
-            <h3>Kompleks Baru</h3>
-            <p>Peresmian asrama 4 lantai, masjid raya, dan gedung STEAM Lab modern untuk menunjang perkembangan kemampuan santri di bidang sains dan teknologi.</p>
-          </div>
-        </div>
-        
-        <!-- 2024 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">2024</div>
-          <div class="timeline-content">
-            <h3>1.000 Alumni</h3>
-            <p>Jumlah alumni tembus 1.000 orang tersebar di dalam & luar negeri sebagai akademisi, ulama, dan profesional di berbagai bidang.</p>
+          <div class="legend-item">
+            <span class="legend-dot event"></span>
+            <span>Acara Akademik</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats Section -->
-  <section class="stats-section">
+  <!-- Upcoming Events -->
+  <section class="events-section">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">Statistik Capaian</h2>
+        <h2 class="section-title">Acara Mendatang</h2>
         <span class="section-divider"></span>
       </div>
       
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-value" data-count="45">45</div>
-          <div class="stat-label">Tahun Berdiri</div>
+      <div class="events-grid">
+        <!-- Event 1 -->
+        <div class="event-card">
+          <div class="event-image">
+            <img src="https://source.unsplash.com/random/600x400/?school,opening" alt="Mulai Semester Ganjil">
+            <div class="event-date">
+              <span class="event-day">15</span>
+              <span class="event-month">Jul</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <h3 class="event-title">Mulai Semester Ganjil</h3>
+            <div class="event-meta">
+              <span><i class="fas fa-clock"></i> 07:30 WIB</span>
+              <span><i class="fas fa-map-marker-alt"></i> Aula Utama</span>
+            </div>
+            <p class="event-description">Pembukaan semester & kegiatan orientasi untuk santri baru. Seluruh santri diwajibkan hadir dan mengenakan seragam lengkap.</p>
+            <a href="#" class="event-btn" data-event="1">Lihat Detail</a>
+          </div>
         </div>
         
-        <div class="stat-card">
-          <div class="stat-value" data-count="1000">1000</div>
-          <div class="stat-label">Alumni</div>
+        <!-- Event 2 -->
+        <div class="event-card">
+          <div class="event-image">
+            <img src="https://source.unsplash.com/random/600x400/?independence,flag" alt="Hari Kemerdekaan RI">
+            <div class="event-date">
+              <span class="event-day">17</span>
+              <span class="event-month">Ags</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <h3 class="event-title">Hari Kemerdekaan RI</h3>
+            <div class="event-meta">
+              <span><i class="fas fa-clock"></i> 08:00 WIB</span>
+              <span><i class="fas fa-map-marker-alt"></i> Lapangan Utama</span>
+            </div>
+            <p class="event-description">Upacara bendera memperingati kemerdekaan Republik Indonesia dan serangkaian lomba untuk seluruh santri.</p>
+            <a href="#" class="event-btn" data-event="2">Lihat Detail</a>
+          </div>
         </div>
         
-        <div class="stat-card">
-          <div class="stat-value" data-count="350">350</div>
-          <div class="stat-label">Santri Aktif</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-value" data-count="65">65</div>
-          <div class="stat-label">Guru & Pembina</div>
+        <!-- Event 3 -->
+        <div class="event-card">
+          <div class="event-image">
+            <img src="https://source.unsplash.com/random/600x400/?maulid,islamic" alt="Maulid Nabi Muhammad">
+            <div class="event-date">
+              <span class="event-day">24</span>
+              <span class="event-month">Sep</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <h3 class="event-title">Maulid Nabi Muhammad ﷺ</h3>
+            <div class="event-meta">
+              <span><i class="fas fa-clock"></i> 19:30 WIB</span>
+              <span><i class="fas fa-map-marker-alt"></i> Masjid Pesantren</span>
+            </div>
+            <p class="event-description">Peringatan Maulid Nabi Muhammad ﷺ dengan pembacaan maulid dan ceramah dari ulama tamu.</p>
+            <a href="#" class="event-btn" data-event="3">Lihat Detail</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1292,6 +1462,35 @@
     </div>
   </footer>
 
+  <!-- Event Modal -->
+  <div class="modal" id="eventModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Detail Acara</h3>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="event-date-full" id="modalDate">
+          <i class="fas fa-calendar-alt"></i>
+          <span>15 Juli 2025</span>
+        </div>
+        <div class="event-type event" id="modalType">Acara Akademik</div>
+        <div class="event-info">
+          <h3>Deskripsi</h3>
+          <p id="modalDesc">Pembukaan semester & kegiatan orientasi untuk santri baru.</p>
+        </div>
+        <div class="event-info">
+          <h3>Lokasi</h3>
+          <p id="modalLocation">Aula Utama</p>
+        </div>
+        <div class="event-info">
+          <h3>Waktu</h3>
+          <p id="modalTime">07:30 WIB</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Back to Top Button -->
   <a href="#" id="back-to-top">
     <i class="fas fa-arrow-up"></i>
@@ -1339,59 +1538,297 @@
         });
       }
       
-      // Animate stats on scroll
-      const statCards = document.querySelectorAll('.stat-card');
+      // Event cards reveal animation
+      const eventCards = document.querySelectorAll('.event-card');
       
-      function animateStats() {
-        statCards.forEach(card => {
-          const statValue = card.querySelector('.stat-value');
-          const targetValue = parseInt(statValue.getAttribute('data-count'));
-          const duration = 2000; // 2 seconds
-          const step = Math.ceil(targetValue / (duration / 30)); // Update every 30ms
+      const eventObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Add delay for staggered animation
+            setTimeout(() => {
+              entry.target.classList.add('show');
+            }, index * 200);
+            eventObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      
+      eventCards.forEach(card => {
+        eventObserver.observe(card);
+      });
+      
+      // Calendar functionality
+      const calendarGrid = document.getElementById('calendarGrid');
+      const monthYearTitle = document.getElementById('monthYearTitle');
+      const prevMonthBtn = document.getElementById('prevMonth');
+      const nextMonthBtn = document.getElementById('nextMonth');
+      
+      // Event data
+      const events = [
+        {
+          id: 1,
+          title: 'Mulai Semester Ganjil',
+          date: '2025-07-15',
+          time: '07:30 WIB',
+          location: 'Aula Utama',
+          description: 'Pembukaan semester & kegiatan orientasi untuk santri baru. Seluruh santri diwajibkan hadir dan mengenakan seragam lengkap.',
+          type: 'event'
+        },
+        {
+          id: 2,
+          title: 'Hari Kemerdekaan RI',
+          date: '2025-08-17',
+          time: '08:00 WIB',
+          location: 'Lapangan Utama',
+          description: 'Upacara bendera memperingati kemerdekaan Republik Indonesia dan serangkaian lomba untuk seluruh santri.',
+          type: 'holiday'
+        },
+        {
+          id: 3,
+          title: 'Maulid Nabi Muhammad ﷺ',
+          date: '2025-09-24',
+          time: '19:30 WIB',
+          location: 'Masjid Pesantren',
+          description: 'Peringatan Maulid Nabi Muhammad ﷺ dengan pembacaan maulid dan ceramah dari ulama tamu.',
+          type: 'holiday'
+        },
+        {
+          id: 4,
+          title: 'Libur Natal',
+          date: '2025-12-25',
+          time: 'Seharian',
+          location: 'Seluruh Pesantren',
+          description: 'Libur Nasional Hari Natal.',
+          type: 'holiday'
+        },
+        {
+          id: 5,
+          title: 'Tahun Baru 2026',
+          date: '2026-01-01',
+          time: 'Seharian',
+          location: 'Seluruh Pesantren',
+          description: 'Libur Nasional Tahun Baru 2026.',
+          type: 'holiday'
+        },
+        {
+          id: 6,
+          title: 'Ujian Akhir Semester',
+          date: '2026-01-10',
+          time: '08:00 WIB',
+          location: 'Ruang Kelas',
+          description: 'Ujian Akhir Semester Ganjil dimulai untuk seluruh jenjang pendidikan.',
+          type: 'event'
+        },
+        {
+          id: 7,
+          title: 'Libur Semester',
+          date: '2026-01-25',
+          time: 'Seharian',
+          location: 'Seluruh Pesantren',
+          description: 'Libur akhir semester ganjil. Santri dapat pulang ke rumah masing-masing.',
+          type: 'holiday'
+        }
+      ];
+      
+      // Current date
+      let currentDate = new Date(2025, 6); // July 2025 (0-indexed)
+      
+      // Month names
+      const monthNames = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+        'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+      ];
+      
+      // Day names
+      const dayNames = ['Ming', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+      
+      // Format date as YYYY-MM-DD
+      function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+      }
+      
+      // Get events for a specific date
+      function getEventsForDate(date) {
+        return events.filter(event => event.date === date);
+      }
+      
+      // Generate calendar
+      function generateCalendar(date) {
+        // Update month and year title
+        monthYearTitle.textContent = `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+        
+        // Clear grid
+        calendarGrid.innerHTML = '';
+        
+        // Add day names
+        dayNames.forEach(day => {
+          const dayNameElement = document.createElement('div');
+          dayNameElement.className = 'calendar-day-name';
+          dayNameElement.textContent = day;
+          calendarGrid.appendChild(dayNameElement);
+        });
+        
+        // Get first day of month
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+        
+        // Get number of days in month
+        const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+        
+        // Get number of days in previous month
+        const daysInPrevMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+        
+        // Calculate days from previous month
+        const startingDay = firstDay === 0 ? 6 : firstDay - 1; // Adjust for Monday as first day
+        
+        // Add days from previous month
+        for (let i = 0; i < startingDay; i++) {
+          const dayElement = document.createElement('div');
+          dayElement.className = 'calendar-day other-month';
+          dayElement.innerHTML = `<div class="day-number">${daysInPrevMonth - startingDay + i + 1}</div>`;
+          calendarGrid.appendChild(dayElement);
+        }
+        
+        // Add days of current month
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const currentMonth = today.getMonth();
+        const currentDay = today.getDate();
+        
+        for (let i = 1; i <= daysInMonth; i++) {
+          const dayElement = document.createElement('div');
+          dayElement.className = 'calendar-day';
           
-          let currentValue = 0;
-          const counter = setInterval(() => {
-            currentValue += step;
-            if (currentValue >= targetValue) {
-              clearInterval(counter);
-              statValue.textContent = targetValue;
-            } else {
-              statValue.textContent = currentValue;
-            }
-          }, 30);
-        });
+          // Check if it's today
+          if (date.getFullYear() === currentYear && date.getMonth() === currentMonth && i === currentDay) {
+            dayElement.classList.add('today');
+          }
+          
+          dayElement.innerHTML = `<div class="day-number">${i}</div>`;
+          
+          // Format date for event lookup
+          const formattedDate = formatDate(new Date(date.getFullYear(), date.getMonth(), i));
+          
+          // Check for events
+          const dayEvents = getEventsForDate(formattedDate);
+          
+          if (dayEvents.length > 0) {
+            // Add event indicator
+            dayElement.classList.add(dayEvents[0].type === 'holiday' ? 'holiday' : 'has-event');
+            
+            // Create event list
+            const eventList = document.createElement('div');
+            eventList.className = 'event-list';
+            
+            // Add events
+            dayEvents.forEach(event => {
+              const eventItem = document.createElement('div');
+              eventItem.className = `event-item ${event.type}`;
+              eventItem.textContent = event.title;
+              eventList.appendChild(eventItem);
+            });
+            
+            dayElement.appendChild(eventList);
+            
+            // Add click event
+            dayElement.addEventListener('click', () => {
+              showEventDetails(dayEvents[0]);
+            });
+          }
+          
+          calendarGrid.appendChild(dayElement);
+        }
+        
+        // Calculate remaining cells to fill grid (6 rows of 7 days)
+        const remainingCells = 42 - (startingDay + daysInMonth);
+        
+        // Add days from next month
+        for (let i = 1; i <= remainingCells; i++) {
+          const dayElement = document.createElement('div');
+          dayElement.className = 'calendar-day other-month';
+          dayElement.innerHTML = `<div class="day-number">${i}</div>`;
+          calendarGrid.appendChild(dayElement);
+        }
       }
       
-      // Create Intersection Observer for stats
-      const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateStats();
-            statsObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
+      // Initially generate calendar
+      generateCalendar(currentDate);
       
-      // Observe the stats section
-      const statsSection = document.querySelector('.stats-section');
-      if (statsSection) {
-        statsObserver.observe(statsSection);
+      // Previous month button
+      prevMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        generateCalendar(currentDate);
+      });
+      
+      // Next month button
+      nextMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        generateCalendar(currentDate);
+      });
+      
+      // Event modal
+      const eventModal = document.getElementById('eventModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDate = document.getElementById('modalDate').querySelector('span');
+      const modalType = document.getElementById('modalType');
+      const modalDesc = document.getElementById('modalDesc');
+      const modalLocation = document.getElementById('modalLocation');
+      const modalTime = document.getElementById('modalTime');
+      const closeModal = document.getElementById('closeModal');
+      
+      // Show event details in modal
+      function showEventDetails(event) {
+        modalTitle.textContent = event.title;
+        
+        // Format date
+        const dateObj = new Date(event.date);
+        const formattedDate = `${dateObj.getDate()} ${monthNames[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
+        modalDate.textContent = formattedDate;
+        
+        // Set event type
+        modalType.className = `event-type ${event.type}`;
+        modalType.textContent = event.type === 'holiday' ? 'Hari Libur' : 'Acara Akademik';
+        
+        // Set other details
+        modalDesc.textContent = event.description;
+        modalLocation.textContent = event.location;
+        modalTime.textContent = event.time;
+        
+        // Show modal
+        eventModal.classList.add('active');
       }
       
-      // Timeline animation on scroll
-      const timelineItems = document.querySelectorAll('.timeline-item');
+      // Close modal button
+      closeModal.addEventListener('click', () => {
+        eventModal.classList.remove('active');
+      });
       
-      const timelineObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            timelineObserver.unobserve(entry.target);
+      // Close modal when clicking outside
+      eventModal.addEventListener('click', (e) => {
+        if (e.target === eventModal) {
+          eventModal.classList.remove('active');
+        }
+      });
+      
+      // Close modal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && eventModal.classList.contains('active')) {
+          eventModal.classList.remove('active');
+        }
+      });
+      
+      // Event card buttons
+      document.querySelectorAll('.event-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const eventId = parseInt(btn.getAttribute('data-event'));
+          const event = events.find(ev => ev.id === eventId);
+          if (event) {
+            showEventDetails(event);
           }
         });
-      }, { threshold: 0.2 });
-      
-      timelineItems.forEach(item => {
-        timelineObserver.observe(item);
       });
     });
   </script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sejarah - Pondok Pesantren Mahmud Marzuki Penyusawan</title>
+  <title>Program Akademik - Pondok Pesantren Mahmud Marzuki Penyusawan</title>
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -392,7 +392,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('https://source.unsplash.com/random/1600x900/?mosque,islamic,history') no-repeat center center/cover;
+      background: url('https://source.unsplash.com/random/1600x900/?islamic,education,classroom') no-repeat center center/cover;
       opacity: 0.3;
       z-index: 0;
     }
@@ -415,127 +415,194 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 
-    /* Timeline Section */
-    .timeline-section {
-      padding: 80px 0;
-      background-color: var(--gray-light);
-    }
-    
-    .timeline {
+    /* Hero Video Section */
+    .hero-video {
       position: relative;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 0;
+      height: 500px;
+      overflow: hidden;
     }
     
-    .timeline::before {
-      content: '';
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .video-overlay {
       position: absolute;
       top: 0;
-      bottom: 0;
-      width: 4px;
-      background: var(--primary-blue);
-      left: 50%;
-      margin-left: -2px;
-      border-radius: 2px;
-    }
-    
-    .timeline-item {
-      position: relative;
-      margin-bottom: 60px;
-    }
-    
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-    
-    .timeline-content {
-      position: relative;
-      width: 45%;
-      padding: 30px;
-      background: var(--white);
-      border-radius: 15px;
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-    }
-    
-    .timeline-content:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    }
-    
-    .timeline-content::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      width: 20px;
-      height: 20px;
-      background: var(--white);
-      transform: rotate(45deg);
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content {
-      float: left;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content::before {
-      right: -10px;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-content {
-      float: right;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-content::before {
-      left: -10px;
-    }
-    
-    .timeline-year {
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      background: var(--primary-yellow);
-      border-radius: 50%;
-      top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--dark-blue);
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
       z-index: 1;
     }
     
-    .timeline-item:nth-child(odd) .timeline-year {
-      right: calc(45% - 35px);
+    .video-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     
-    .timeline-item:nth-child(even) .timeline-year {
-      left: calc(45% - 35px);
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 30px;
+      z-index: 2;
+      cursor: pointer;
+      transition: var(--transition);
     }
     
-    .timeline-content h3 {
-      color: var(--primary-blue);
-      margin-bottom: 10px;
-      font-size: 1.3rem;
+    .play-button:hover {
+      background: var(--primary-yellow);
+      color: var(--dark-blue);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* Curriculum Overview Section */
+    .overview-section {
+      padding: 80px 0;
+      background: var(--white);
     }
     
-    .timeline-content p {
+    .overview-card {
+      background: var(--light-blue);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: var(--box-shadow);
+      margin-bottom: 40px;
+    }
+    
+    .overview-card p {
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    
+    .overview-card p:last-child {
       margin-bottom: 0;
-      color: var(--text-dark);
     }
     
-    .timeline-clearfix::after {
-      content: '';
-      display: table;
-      clear: both;
+    .overview-card b, .overview-card strong {
+      color: var(--dark-blue);
+    }
+    
+    .overview-card em {
+      color: var(--primary-blue);
+    }
+
+    /* Program Cards */
+    .programs-section {
+      padding: 80px 0;
+      background: var(--gray-light);
+    }
+    
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .program-card {
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+      position: relative;
+      top: 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.6s ease, opacity 0.6s ease, top 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    .program-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .program-card:hover {
+      top: -10px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .program-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--light-blue);
+      color: var(--primary-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      margin: 0 auto 20px;
+      transition: var(--transition);
+    }
+    
+    .program-card:hover .program-icon {
+      background: var(--primary-blue);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+    
+    .program-header {
+      padding: 25px 25px 15px;
+      text-align: center;
+    }
+    
+    .program-header h3 {
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+    
+    .program-content {
+      padding: 0 25px 25px;
+      text-align: center;
+    }
+    
+    .program-content p {
+      margin-bottom: 20px;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+    
+    .program-btn {
+      display: inline-block;
+      background: var(--primary-yellow);
+      color: var(--dark-blue);
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    
+    .program-btn:hover {
+      background: var(--dark-blue);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     /* Stats Section */
     .stats-section {
       padding: 60px 0;
-      background: var(--light-blue);
+      background: var(--primary-blue);
+      color: var(--white);
     }
     
     .stats-grid {
@@ -545,107 +612,161 @@
       text-align: center;
     }
     
-    .stat-card {
-      background: var(--white);
-      padding: 30px 20px;
-      border-radius: 15px;
-      box-shadow: var(--box-shadow);
+    .stat-box {
+      padding: 20px;
       transition: var(--transition);
+      border-radius: 10px;
     }
     
-    .stat-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    .stat-box:hover {
+      background: rgba(255, 255, 255, 0.1);
     }
     
-    .stat-value {
+    .counter {
       font-size: 3rem;
       font-weight: 800;
-      color: var(--primary-blue);
+      color: var(--primary-yellow);
       margin-bottom: 10px;
       font-family: var(--font-arabic);
     }
     
-    .stat-label {
-      color: var(--dark-blue);
-      font-weight: 600;
+    .stat-box p {
+      font-weight: 500;
+      font-size: 1.1rem;
     }
 
-    /* History Content Section */
-    .history-content-section {
+    /* Achievement Gallery */
+    .achievement-section {
       padding: 80px 0;
       background: var(--white);
     }
     
-    .history-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
+    .achievement-wrapper {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
     }
     
-    .history-text {
+    .achievement-slider {
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .achievement-slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    
+    .achievement-slide {
+      flex: 0 0 100%;
+      padding: 0 15px;
+    }
+    
+    .achievement-card {
+      background: var(--light-blue);
+      border-radius: 15px;
       padding: 30px;
-    }
-    
-    .history-text h2 {
-      color: var(--dark-blue);
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-    
-    .history-text p {
-      margin-bottom: 15px;
-      color: var(--text-dark);
-      line-height: 1.8;
-    }
-    
-    .history-text ul {
-      margin-left: 20px;
-      margin-bottom: 20px;
-    }
-    
-    .history-text ul li {
-      margin-bottom: 10px;
-      position: relative;
-    }
-    
-    .history-text ul li::before {
-      content: '';
-      position: absolute;
-      left: -20px;
-      top: 10px;
-      width: 8px;
-      height: 8px;
-      background: var(--primary-yellow);
-      border-radius: 50%;
-    }
-    
-    .history-image {
-      position: relative;
-      z-index: 1;
+      box-shadow: var(--box-shadow);
+      text-align: center;
+      transition: var(--transition);
       height: 100%;
     }
     
-    .history-image::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      width: calc(100% - 40px);
-      height: calc(100% - 40px);
-      background: var(--primary-yellow);
-      opacity: 0.3;
-      z-index: -1;
-      border-radius: 15px;
+    .achievement-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
     
-    .history-image img {
+    .achievement-image {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .achievement-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 15px;
-      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+    
+    .achievement-card:hover .achievement-image img {
+      transform: scale(1.05);
+    }
+    
+    .achievement-card h3 {
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+    
+    .achievement-card p {
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+    
+    .achievement-date {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      margin-bottom: 10px;
+      display: block;
+    }
+    
+    .achievement-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 2;
+      padding: 0 -15px;
+    }
+    
+    .achievement-btn {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-blue);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      pointer-events: auto;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .achievement-btn:hover {
+      background: var(--dark-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .achievement-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+    
+    .achievement-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--light-blue);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .achievement-dot.active {
+      background: var(--primary-blue);
+      transform: scale(1.2);
     }
     
     /* Footer */
@@ -849,6 +970,74 @@
       color: rgba(255, 255, 255, 0.5);
     }
     
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      width: 90%;
+      max-width: 900px;
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .modal-header {
+      padding: 15px 20px;
+      background: var(--primary-blue);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .modal-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 24px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .modal-close:hover {
+      color: var(--primary-yellow);
+    }
+    
+    .modal-body {
+      height: 500px;
+    }
+    
+    .modal-body iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
     /* Back to Top */
     #back-to-top {
       position: fixed;
@@ -894,27 +1083,12 @@
         font-size: 1.8rem;
       }
       
-      .history-content {
-        grid-template-columns: 1fr;
+      .programs-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       }
       
-      .timeline::before {
-        left: 30px;
-      }
-      
-      .timeline-content {
-        width: calc(100% - 80px);
-        float: right;
-      }
-      
-      .timeline-item:nth-child(odd) .timeline-content::before,
-      .timeline-item:nth-child(even) .timeline-content::before {
-        left: -10px;
-      }
-      
-      .timeline-item:nth-child(odd) .timeline-year,
-      .timeline-item:nth-child(even) .timeline-year {
-        left: 0;
+      .hero-video {
+        height: 400px;
       }
     }
     
@@ -965,15 +1139,25 @@
       .page-banner p {
         font-size: 1rem;
       }
-
-      .timeline-year {
-        width: 50px;
-        height: 50px;
-        font-size: 1rem;
+      
+      .hero-video {
+        height: 300px;
       }
       
-      .timeline-content {
-        width: calc(100% - 60px);
+      .play-button {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+      
+      .achievement-image {
+        height: 200px;
+      }
+      
+      .achievement-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
       }
       
       .footer-top, .footer-bottom {
@@ -1027,12 +1211,30 @@
         font-size: 1.5rem;
       }
       
-      .timeline-content {
-        padding: 20px;
+      .hero-video {
+        height: 250px;
       }
       
-      .timeline-content h3 {
-        font-size: 1.1rem;
+      .play-button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+      
+      .counter {
+        font-size: 2.4rem;
+      }
+      
+      .stat-box p {
+        font-size: 0.9rem;
+      }
+      
+      .achievement-image {
+        height: 180px;
+      }
+      
+      .modal-body {
+        height: 300px;
       }
     }
   </style>
@@ -1076,7 +1278,6 @@
   </header>
 
   <!-- Navigation -->
-  <!-- Navigation -->
   <div class="container">
     <nav class="nav-grid" id="mainNav">
       <a class="nav-btn active" href="#hero"><i class="fas fa-home"></i>Beranda</a>
@@ -1094,94 +1295,132 @@
   <section class="page-banner">
     <div class="container">
       <div class="page-banner-content">
-        <h1>Sejarah Pesantren</h1>
-        <p>Perjalanan Mahmud Marzuki Penyusawan dari 1980 hingga kini</p>
+        <h1>Program Akademik</h1>
+        <p>Integrasi ilmu agama dan sains modern untuk generasi unggul</p>
       </div>
     </div>
   </section>
 
-  <!-- History Content Section -->
-  <section class="history-content-section">
+  <!-- Hero Video Section -->
+  <section class="hero-video">
+    <div class="video-container">
+      <div class="video-overlay"></div>
+      <!-- Placeholder image that looks like a video thumbnail -->
+      <img src="https://source.unsplash.com/random/1600x900/?islamic,education,classroom" alt="Video thumbnail" class="video-iframe">
+      <a href="#" class="play-button" id="videoPlayBtn">
+        <i class="fas fa-play"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Curriculum Overview -->
+  <section class="overview-section">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">Asal Mula Pesantren</h2>
+        <h2 class="section-title">Kurikulum Terpadu</h2>
         <span class="section-divider"></span>
       </div>
       
-      <div class="history-content">
-        <div class="history-text">
-          <h2>Visi Pendiri</h2>
-          <p>Pondok Pesantren Mahmud Marzuki Penyusawan didirikan pada tahun 1980 oleh KH. Mahmud Marzuki dengan visi yang jelas untuk membentuk generasi Muslim yang berpengetahuan luas, berakhlak mulia, dan mampu mengintegrasikan ilmu agama dengan sains modern.</p>
-          <p>Dengan kegelisahan akan semakin menurunnya kualitas pendidikan Islam di Indonesia saat itu, beliau mewakafkan tanah keluarga seluas 2 hektar untuk mendirikan sebuah lembaga pendidikan yang kini telah berkembang menjadi salah satu pesantren terkemuka di Indonesia.</p>
-          <p>Berawal dari hanya 20 santri penghafal Al-Qur'an, pesantren ini terus berkembang baik dari segi infrastruktur, kurikulum, maupun jumlah santri yang menuntut ilmu di dalamnya.</p>
-        </div>
-        <div class="history-image">
-          <img src="https://source.unsplash.com/random/600x700/?islamic,school,founder" alt="Pendiri Pesantren">
-        </div>
+      <div class="overview-card">
+        <p>Pondok Pesantren Mahmud Marzuki Penyusawan menggabungkan <b>Kurikulum Nasional</b> (IPA-IPS, matematika, literasi digital) dan <b>Kurikulum Diniyyah</b> (Al-Qur'an, Hadits, Fiqh, Aqidah, Bahasa Arab) dalam satu sistem pendidikan yang holistik.</p>
+        
+        <p>Metode <em>project-based learning</em> &amp; riset ilmiah mendorong santri untuk berpikir kritis dan analitis sambil tetap menjunjung tinggi nilai-nilai akhlak Islami. Pendekatan ini memastikan bahwa lulusan kami tidak hanya menguasai ilmu agama tetapi juga memiliki kompetensi di bidang sains dan teknologi modern.</p>
+        
+        <p>Kurikulum kami dirancang untuk mempersiapkan santri menghadapi tantangan global sambil tetap mempertahankan nilai-nilai keislaman. Penekanan pada keterampilan abad 21 seperti komunikasi, kolaborasi, kreativitas, dan pemecahan masalah menjadi fokus utama dalam setiap kegiatan pembelajaran.</p>
       </div>
     </div>
   </section>
 
-  <!-- Timeline Section -->
-  <section class="timeline-section">
+  <!-- Program Cards -->
+  <section class="programs-section" id="programs">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">Timeline Perkembangan</h2>
+        <h2 class="section-title">Daftar Program</h2>
         <span class="section-divider"></span>
       </div>
       
-      <div class="timeline">
-        <!-- 1980 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">1980</div>
-          <div class="timeline-content">
-            <h3>Pendirian</h3>
-            <p>Pondok didirikan oleh KH. Mahmud Marzuki di atas tanah wakaf keluarga seluas 2 hektar; berawal 20 santri dengan fokus Tahfidz.</p>
+      <div class="programs-grid">
+        <!-- Program Card 1 -->
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon">
+              <i class="fas fa-school"></i>
+            </div>
+            <h3>Madrasah Tsanawiyah</h3>
+          </div>
+          <div class="program-content">
+            <p>Program setara SMP dengan fondasi agama & sains yang kuat. Kurikulum terintegrasi yang membekali santri dengan dasar-dasar ilmu pengetahuan dan nilai-nilai keislaman.</p>
+            <a href="program-mts.html" class="program-btn">Selengkapnya</a>
           </div>
         </div>
         
-        <!-- 1990 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">1990</div>
-          <div class="timeline-content">
-            <h3>Perluasan Kurikulum</h3>
-            <p>Dibuka Madrasah Tsanawiyah & Aliyah; kurikulum nasional terintegrasi ilmu diniyyah untuk memenuhi kebutuhan pendidikan formal santri.</p>
+        <!-- Program Card 2 -->
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <h3>Madrasah Aliyah IPA/IPS</h3>
+          </div>
+          <div class="program-content">
+            <p>Pendalaman keilmuan & riset dengan spesialisasi bidang IPA atau IPS. Program ini dirancang untuk mempersiapkan santri memasuki jenjang pendidikan tinggi.</p>
+            <a href="program-ma.html" class="program-btn">Selengkapnya</a>
           </div>
         </div>
         
-        <!-- 2005 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">2005</div>
-          <div class="timeline-content">
-            <h3>Digitalisasi</h3>
-            <p>Penerapan laboratorium komputer & perpustakaan digital pertama di kabupaten, menandai era baru pesantren yang adaptif terhadap perkembangan teknologi.</p>
+        <!-- Program Card 3 -->
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon">
+              <i class="fas fa-book-quran"></i>
+            </div>
+            <h3>Tahfidz Intensif</h3>
+          </div>
+          <div class="program-content">
+            <p>Program hafalan 30 Juz Al-Qur'an dengan metode mutqin & qira'at. Dibimbing langsung oleh para hafidz berpengalaman dengan pendekatan modern.</p>
+            <a href="program-tahfidz.html" class="program-btn">Selengkapnya</a>
           </div>
         </div>
         
-        <!-- 2012 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">2012</div>
-          <div class="timeline-content">
-            <h3>Akreditasi A</h3>
-            <p>Mendapat Akreditasi A BAN-SM untuk semua jenjang & menjadi sekolah rujukan bagi pengembangan lembaga pendidikan Islam di Indonesia.</p>
+        <!-- Program Card 4 -->
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon">
+              <i class="fas fa-language"></i>
+            </div>
+            <h3>Arabic & English Immersion</h3>
+          </div>
+          <div class="program-content">
+            <p>Program intensif bahasa Arab dan Inggris dengan praktik debat & penulisan ilmiah. Membekali santri dengan keterampilan bahasa yang dibutuhkan di era global.</p>
+            <a href="program-language.html" class="program-btn">Selengkapnya</a>
           </div>
         </div>
         
-        <!-- 2018 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">2018</div>
-          <div class="timeline-content">
-            <h3>Kompleks Baru</h3>
-            <p>Peresmian asrama 4 lantai, masjid raya, dan gedung STEAM Lab modern untuk menunjang perkembangan kemampuan santri di bidang sains dan teknologi.</p>
+        <!-- Program Card 5 -->
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon">
+              <i class="fas fa-atom"></i>
+            </div>
+            <h3>Sains Terapan & Robotika</h3>
+          </div>
+          <div class="program-content">
+            <p>Laboratorium STEAM modern dengan fasilitas lengkap untuk eksperimen dan pengembangan proyek-proyek inovatif berbasis sains dan teknologi.</p>
+            <a href="program-steam.html" class="program-btn">Selengkapnya</a>
           </div>
         </div>
         
-        <!-- 2024 -->
-        <div class="timeline-item timeline-clearfix">
-          <div class="timeline-year">2024</div>
-          <div class="timeline-content">
-            <h3>1.000 Alumni</h3>
-            <p>Jumlah alumni tembus 1.000 orang tersebar di dalam & luar negeri sebagai akademisi, ulama, dan profesional di berbagai bidang.</p>
+        <!-- Program Card 6 -->
+        <div class="program-card">
+          <div class="program-header">
+            <div class="program-icon">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3>Leadership & Entrepreneurship</h3>
+          </div>
+          <div class="program-content">
+            <p>Program inkubasi bisnis santri dengan pelatihan kepemimpinan dan kewirausahaan islami. Mempersiapkan santri untuk menjadi pemimpin yang memiliki jiwa wirausaha.</p>
+            <a href="program-leadership.html" class="program-btn">Selengkapnya</a>
           </div>
         </div>
       </div>
@@ -1191,30 +1430,92 @@
   <!-- Stats Section -->
   <section class="stats-section">
     <div class="container">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="counter" data-count="850">0</div>
+          <p>Alumni Sukses</p>
+        </div>
+        
+        <div class="stat-box">
+          <div class="counter" data-count="65">0</div>
+          <p>Guru & Pembina</p>
+        </div>
+        
+        <div class="stat-box">
+          <div class="counter" data-count="120">0</div>
+          <p>Prestasi Nasional</p>
+        </div>
+        
+        <div class="stat-box">
+          <div class="counter" data-count="15">0</div>
+          <p>Program Unggulan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievement Gallery -->
+  <section class="achievement-section">
+    <div class="container">
       <div class="section-head">
-        <h2 class="section-title">Statistik Capaian</h2>
+        <h2 class="section-title">Prestasi Akademik</h2>
         <span class="section-divider"></span>
       </div>
       
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-value" data-count="45">45</div>
-          <div class="stat-label">Tahun Berdiri</div>
+      <div class="achievement-wrapper">
+        <div class="achievement-slider">
+          <div class="achievement-slides" id="achievementSlides">
+            <!-- Achievement 1 -->
+            <div class="achievement-slide">
+              <div class="achievement-card">
+                <div class="achievement-image">
+                  <img src="https://source.unsplash.com/random/600x400/?trophy,award" alt="Olimpiade Sains">
+                </div>
+                <span class="achievement-date">Februari 2025</span>
+                <h3>Medali Emas Olimpiade Sains Nasional</h3>
+                <p>Santri kami, Ahmad Fauzi, berhasil meraih medali emas dalam Olimpiade Sains Nasional bidang Fisika tingkat SMA/MA yang diselenggarakan di Jakarta.</p>
+              </div>
+            </div>
+            
+            <!-- Achievement 2 -->
+            <div class="achievement-slide">
+              <div class="achievement-card">
+                <div class="achievement-image">
+                  <img src="https://source.unsplash.com/random/600x400/?competition,robotics" alt="Kompetisi Robotika">
+                </div>
+                <span class="achievement-date">Januari 2025</span>
+                <h3>Juara 1 Kompetisi Robotika Tingkat Provinsi</h3>
+                <p>Tim robotika kami menjadi juara pertama dalam Kompetisi Robotika Tingkat Provinsi yang diselenggarakan oleh Dinas Pendidikan Jawa Barat.</p>
+              </div>
+            </div>
+            
+            <!-- Achievement 3 -->
+            <div class="achievement-slide">
+              <div class="achievement-card">
+                <div class="achievement-image">
+                  <img src="https://source.unsplash.com/random/600x400/?quran,competition" alt="MTQ Nasional">
+                </div>
+                <span class="achievement-date">Desember 2024</span>
+                <h3>Juara 2 Musabaqah Tilawatil Qur'an Nasional</h3>
+                <p>Santri putri kami, Fatimah Azzahra, meraih juara 2 dalam kategori Tahfidz 30 Juz pada Musabaqah Tilawatil Qur'an Tingkat Nasional.</p>
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div class="stat-card">
-          <div class="stat-value" data-count="1000">1000</div>
-          <div class="stat-label">Alumni</div>
+        <div class="achievement-nav">
+          <button class="achievement-btn" id="prevAchievement">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="achievement-btn" id="nextAchievement">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
         
-        <div class="stat-card">
-          <div class="stat-value" data-count="350">350</div>
-          <div class="stat-label">Santri Aktif</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-value" data-count="65">65</div>
-          <div class="stat-label">Guru & Pembina</div>
+        <div class="achievement-dots" id="achievementDots">
+          <span class="achievement-dot active" data-index="0"></span>
+          <span class="achievement-dot" data-index="1"></span>
+          <span class="achievement-dot" data-index="2"></span>
         </div>
       </div>
     </div>
@@ -1297,6 +1598,19 @@
     <i class="fas fa-arrow-up"></i>
   </a>
 
+  <!-- Video Modal -->
+  <div class="modal" id="videoModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Program Akademik Pesantren</h3>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="modalIframe" src="" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
   <!-- Inline JavaScript for efficiency -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1339,60 +1653,160 @@
         });
       }
       
-      // Animate stats on scroll
-      const statCards = document.querySelectorAll('.stat-card');
+      // Video modal
+      const videoPlayBtn = document.getElementById('videoPlayBtn');
+      const videoModal = document.getElementById('videoModal');
+      const modalIframe = document.getElementById('modalIframe');
+      const closeModal = document.getElementById('closeModal');
       
-      function animateStats() {
-        statCards.forEach(card => {
-          const statValue = card.querySelector('.stat-value');
-          const targetValue = parseInt(statValue.getAttribute('data-count'));
+      if (videoPlayBtn && videoModal && modalIframe && closeModal) {
+        videoPlayBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          modalIframe.src = 'https://www.youtube.com/embed/13y6g4rNB5k?autoplay=1';
+          videoModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', function() {
+          videoModal.classList.remove('active');
+          modalIframe.src = '';
+          document.body.style.overflow = '';
+        });
+        
+        videoModal.addEventListener('click', function(e) {
+          if (e.target === videoModal) {
+            videoModal.classList.remove('active');
+            modalIframe.src = '';
+            document.body.style.overflow = '';
+          }
+        });
+        
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+            videoModal.classList.remove('active');
+            modalIframe.src = '';
+            document.body.style.overflow = '';
+          }
+        });
+      }
+      
+      // Animate stats when in viewport
+      const statsSection = document.querySelector('.stats-section');
+      const counters = document.querySelectorAll('.counter');
+      
+      function animateCounters() {
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-count');
           const duration = 2000; // 2 seconds
-          const step = Math.ceil(targetValue / (duration / 30)); // Update every 30ms
+          const step = Math.ceil(target / (duration / 30)); // Update every 30ms
           
-          let currentValue = 0;
-          const counter = setInterval(() => {
-            currentValue += step;
-            if (currentValue >= targetValue) {
-              clearInterval(counter);
-              statValue.textContent = targetValue;
+          let count = 0;
+          const timer = setInterval(() => {
+            count += step;
+            if (count >= target) {
+              clearInterval(timer);
+              counter.textContent = target;
             } else {
-              statValue.textContent = currentValue;
+              counter.textContent = count;
             }
           }, 30);
         });
       }
       
-      // Create Intersection Observer for stats
       const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            animateStats();
+            animateCounters();
             statsObserver.unobserve(entry.target);
           }
         });
       }, { threshold: 0.5 });
       
-      // Observe the stats section
-      const statsSection = document.querySelector('.stats-section');
       if (statsSection) {
         statsObserver.observe(statsSection);
       }
       
-      // Timeline animation on scroll
-      const timelineItems = document.querySelectorAll('.timeline-item');
+      // Program cards reveal animation
+      const programCards = document.querySelectorAll('.program-card');
       
-      const timelineObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+      const programObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            timelineObserver.unobserve(entry.target);
+            // Add delay for staggered animation
+            setTimeout(() => {
+              entry.target.classList.add('show');
+            }, index * 150);
+            programObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.2 });
+      }, { threshold: 0.15 });
       
-      timelineItems.forEach(item => {
-        timelineObserver.observe(item);
+      programCards.forEach(card => {
+        programObserver.observe(card);
       });
+      
+      // Achievement slider
+      const achievementSlides = document.getElementById('achievementSlides');
+      const achievementDots = document.querySelectorAll('.achievement-dot');
+      const prevAchievement = document.getElementById('prevAchievement');
+      const nextAchievement = document.getElementById('nextAchievement');
+      let currentSlide = 0;
+      const totalSlides = document.querySelectorAll('.achievement-slide').length;
+      
+      function showSlide(index) {
+        // Update slide position
+        achievementSlides.style.transform = `translateX(-${index * 100}%)`;
+        
+        // Update dots
+        achievementDots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+        
+        achievementDots[index].classList.add('active');
+        currentSlide = index;
+      }
+      
+      // Event listeners for navigation
+      if (prevAchievement && nextAchievement) {
+        prevAchievement.addEventListener('click', () => {
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+          showSlide(currentSlide);
+        });
+        
+        nextAchievement.addEventListener('click', () => {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          showSlide(currentSlide);
+        });
+      }
+      
+      // Click on dots to navigate
+      achievementDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const index = parseInt(dot.getAttribute('data-index'));
+          showSlide(index);
+        });
+      });
+      
+      // Auto slide
+      let slideInterval = setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      }, 5000);
+      
+      // Pause auto slide on hover
+      const achievementSlider = document.querySelector('.achievement-slider');
+      if (achievementSlider) {
+        achievementSlider.addEventListener('mouseenter', () => {
+          clearInterval(slideInterval);
+        });
+        
+        achievementSlider.addEventListener('mouseleave', () => {
+          slideInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+          }, 5000);
+        });
+      }
     });
   </script>
 </body>

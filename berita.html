@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags - SEO -->
+  <title>Berita & Kegiatan | Pondok Pesantren Mahmud Marzuki Penyusawan</title>
+  <meta name="description" content="Berita terbaru dan informasi kegiatan dari Pondok Pesantren Mahmud Marzuki Penyusawan.">
+  <meta name="keywords" content="pondok pesantren, islamic school, mahmud marzuki, berita pesantren, kegiatan pesantren">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Variables */
+    :root {
+      --primary-blue: #1a75ff;
+      --primary-yellow: #ffc107;
+      --light-yellow: #fff3cd;
+      --white: #fff;
+      --dark-blue: #0d47a1;
+      --light-blue: #e3f2fd;
+      --gray: #f5f5f5;
+      --gray-dark: #666;
+      --text-dark: #333;
+      --border-color: #eee;
+      --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--gray);
+    }
+    
+    a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--dark-blue);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header */
+    header {
+      background: var(--light-blue);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+    
+    header.shrink {
+      padding: 10px 0;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      width: 80px;
+      height: 80px;
+      border: 4px solid var(--primary-yellow);
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo img {
+      max-width: 85%;
+    }
+    
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-left: 15px;
+    }
+    
+    .navbar-toggler {
+      display: none;
+      background: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* Navigation */
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .nav-btn {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 14px 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: var(--transition);
+      text-align: center;
+    }
+    
+    .nav-btn i {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    
+    .nav-btn:hover, .nav-btn.active {
+      background: var(--dark-blue);
+      transform: translateY(-4px);
+      box-shadow: var(--box-shadow);
+    }
+    
+    /* Page Header */
+    .page-header {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: var(--white);
+      transform: skewY(-2deg);
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      position: relative;
+    }
+    
+    .page-header p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    /* News Filters */
+    .news-filters {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .filter-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .filter-label {
+      font-weight: 600;
+      color: var(--dark-blue);
+    }
+    
+    .filter-select {
+      padding: 8px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      background: var(--white);
+      color: var(--text-dark);
+    }
+    
+    .search-form {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .search-input {
+      padding: 8px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      width: 100%;
+      min-width: 200px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: var(--transition);
+      text-align: center;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+    
+    .btn-primary:hover {
+      background: var(--dark-blue);
+      transform: translateY(-3px);
+    }
+    
+    /* News Grid */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    
+    .news-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .news-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .news-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .news-category {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 5px 15px;
+      background: var(--primary-blue);
+      color: var(--white);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      z-index: 1;
+    }
+    
+    .news-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .news-card:hover .news-image img {
+      transform: scale(1.05);
+    }
+    
+    .news-content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .news-date {
+      color: var(--gray-dark);
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .news-title {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      color: var(--dark-blue);
+    }
+    
+    .news-excerpt {
+      color: var(--gray-dark);
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    
+    .read-more {
+      align-self: flex-start;
+      padding: 8px 20px;
+      background: var(--primary-yellow);
+      color: var(--dark-blue);
+      border-radius: 5px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    
+    .read-more:hover {
+      background: var(--dark-blue);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+      gap: 5px;
+    }
+    
+    .page-item {
+      display: inline-block;
+    }
+    
+    .page-link {
+      padding: 10px 15px;
+      background: var(--white);
+      color: var(--text-dark);
+      border-radius: 5px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    
+    .page-link:hover, .page-item.active .page-link {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+    
+    /* No Results */
+    .no-results {
+      background: var(--white);
+      padding: 50px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .no-results h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--dark-blue);
+    }
+    
+    .no-results p {
+      margin-bottom: 20px;
+      color: var(--gray-dark);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 50px 0 20px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .footer h3 {
+      color: var(--primary-yellow);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--primary-yellow);
+    }
+    
+    .footer p {
+      margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .footer a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transition);
+    }
+    
+    .footer a:hover {
+      color: var(--primary-yellow);
+    }
+    
+    .footer-links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .footer-links a:hover {
+      transform: translateX(5px);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    .social-link:hover {
+      background: var(--primary-yellow);
+      color: var(--dark-blue);
+      transform: translateY(-3px);
+    }
+    
+    hr {
+      border: none;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 20px 0;
+    }
+    
+    .copyright {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Back to Top Button */
+    #back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 45px;
+      height: 45px;
+      background: var(--primary-blue);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--box-shadow);
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    
+    #back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    #back-to-top:hover {
+      background: var(--dark-blue);
+      transform: translateY(-3px);
+    }
+    
+    /* Newsletter Section */
+    .newsletter-section {
+      background: var(--primary-blue);
+      padding: 50px 0;
+      margin-bottom: 50px;
+      color: var(--white);
+      position: relative;
+    }
+    
+    .newsletter-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .newsletter-content p {
+      margin-bottom: 25px;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 12px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      color: var(--white);
+    }
+    
+    .newsletter-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .newsletter-btn {
+      padding: 12px 25px;
+      background: var(--primary-yellow);
+      color: var(--dark-blue);
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .newsletter-btn:hover {
+      background: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .filter-group {
+        flex-wrap: wrap;
+      }
+      
+      .search-form {
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .header-title {
+        margin: 10px 0 0;
+      }
+      
+      .navbar-toggler {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 15px;
+      }
+      
+      .nav-grid {
+        display: none;
+      }
+      
+      .nav-grid.show-mobile {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .pagination {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <div class="header-container">
+        <div>
+          <div class="logo">
+            <img src="https://media-hosting.imagekit.io//08ea0aa2b86b45b3/c0a04346-1924-4d34-b66f-264de378d327.jpg?Expires=1835874188&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XCy6xAnh8i-MkpspFbB4det~5sCPsTrEoxSoTgO9SZC2zbUh8rOYHthWOcpGLbFZfq0N6GtO9RW6PVt9ltOT8VYlUeAhF2CAVmP8vMVdRctpciTQa9jnkfPSATRdNYHL5-fLoI-LBanADmj4xwdmNsBol0YrxaLhKmOKbhOcSQL2f9Hnv~MUJLRQwmq~Hg9ehHKL5nXHNHb9WUOsgp-abUSCO1RUR8etdS9xFP4X2k0ODvI7Qsk-Fl7qrOWChimw1LGkapbOTjCwfWzhdy8S6q28foPnTrp1kycYanFKSZQbWx-rSmfSyPvL-ct7AYBbryOYQliILuaCEN5D7HjR9A__" alt="Logo Pesantren Mahmud Marzuki">
+          </div>
+          <h1 class="header-title">Pondok Pesantren Muhammadiyah Mahmud Marzuki</h1>
+        </div>
+        <button class="navbar-toggler" type="button" id="navToggler">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <div class="container">
+    <nav class="nav-grid" id="mainNav">
+      <a class="nav-btn active" href="#hero"><i class="fas fa-home"></i>Beranda</a>
+      <a class="nav-btn" href="history.html"><i class="fas fa-history"></i>Sejarah</a>
+      <a class="nav-btn" href="program_akademik.html"><i class="fas fa-book"></i>Program&nbsp;Akademik</a>
+      <a class="nav-btn" href="pembinaan_intensif.html"><i class="fas fa-mosque"></i>Pembinaan&nbsp;Intensif</a>
+      <a class="nav-btn" href="kalender.html"><i class="fas fa-calendar-alt"></i>Kalender</a>
+      <a class="nav-btn" href="admission.html"><i class="fas fa-user-graduate"></i>Admisi</a>
+      <a class="nav-btn" href="berita.html"><i class="fas fa-newspaper"></i>Berita</a>
+      <a class="nav-btn" href="podcast.html"><i class="fa-solid fa-podcast"></i>Podcast</a>
+    </nav>
+  </div>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Berita & Kegiatan</h1>
+      <p>Informasi terbaru seputar kegiatan dan perkembangan Pondok Pesantren Mahmud Marzuki Penyusawan</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- News Filters -->
+    <div class="news-filters">
+      <div class="filter-row">
+        <div class="filter-group">
+          <span class="filter-label">Kategori:</span>
+          <select class="filter-select" id="categoryFilter">
+            <option value="">Semua Kategori</option>
+            <option value="informasi">Informasi Tahunan</option>
+            <option value="prestasi">Prestasi Santri</option>
+            <option value="kegiatan">Kegiatan Pesantren</option>
+            <option value="artikel">Artikel Pendidikan</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <span class="filter-label">Urutkan:</span>
+          <select class="filter-select" id="sortFilter">
+            <option value="newest">Terbaru</option>
+            <option value="oldest">Terlama</option>
+            <option value="popular">Terpopuler</option>
+          </select>
+        </div>
+        
+        <form class="search-form">
+          <input type="text" class="search-input" placeholder="Cari berita...">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- News Grid -->
+    <div class="news-grid">
+      <!-- News Card 1 -->
+      <div class="news-card">
+        <div class="news-image">
+          <div class="news-category">Informasi Tahunan</div>
+          <img src="img/news/pendaftaran.jpg" alt="Pendaftaran Santri Baru 2025">
+        </div>
+        <div class="news-content">
+          <div class="news-date">
+            <i class="far fa-calendar-alt"></i> 3 Maret 2025
+          </div>
+          <h3 class="news-title">Pendaftaran Santri Baru Dibuka—Fasilitas Bersaing Skala Internasional</h3>
+          <div class="news-excerpt">
+            <p>Pondok Pesantren Mahmud Marzuki dengan bangga mengumumkan pembukaan pendaftaran santri baru untuk tahun ajaran 2025/2026. Pendaftaran akan dibuka mulai tanggal 5 Maret 2025 hingga 30 April 2025.</p>
+          </div>
+          <a href="berita/pendaftaran-santri-baru-2025.html" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+      
+      <!-- News Card 2 -->
+      <div class="news-card">
+        <div class="news-image">
+          <div class="news-category">Kegiatan Pesantren</div>
+          <img src="img/news/ramadhan.jpg" alt="Persiapan Ramadhan 2025">
+        </div>
+        <div class="news-content">
+          <div class="news-date">
+            <i class="far fa-calendar-alt"></i> 28 Februari 2025
+          </div>
+          <h3 class="news-title">Persiapan Ramadhan 2025</h3>
+          <div class="news-excerpt">
+            <p>Pondok Pesantren Mahmud Marzuki mempersiapkan program buka bersama gratis 100 porsi tiap hari untuk umum sebagai bentuk pengabdian kepada masyarakat sekitar.</p>
+          </div>
+          <a href="berita/persiapan-ramadhan-2025.html" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+      
+      <!-- News Card 3 -->
+      <div class="news-card">
+        <div class="news-image">
+          <div class="news-category">Prestasi Santri</div>
+          <img src="img/news/olimpiade.jpg" alt="Prestasi Olimpiade Sains">
+        </div>
+        <div class="news-content">
+          <div class="news-date">
+            <i class="far fa-calendar-alt"></i> 15 Februari 2025
+          </div>
+          <h3 class="news-title">Santri Raih Emas Olimpiade Sains Nasional</h3>
+          <div class="news-excerpt">
+            <p>Muhammad Farhan, santri kelas 11 MA IPA berhasil meraih medali emas pada Olimpiade Sains Nasional (OSN) bidang Fisika yang diselenggarakan di Jakarta pada tanggal 10-14 Februari 2025.</p>
+          </div>
+          <a href="berita/prestasi-olimpiade-sains.html" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+      
+      <!-- News Card 4 -->
+      <div class="news-card">
+        <div class="news-image">
+          <div class="news-category">Kegiatan Pesantren</div>
+          <img src="img/news/global.jpg" alt="Sinergi Global Pesantren">
+        </div>
+        <div class="news-content">
+          <div class="news-date">
+            <i class="far fa-calendar-alt"></i> 25 Januari 2025
+          </div>
+          <h3 class="news-title">Sinergi Global Pesantren</h3>
+          <div class="news-excerpt">
+            <p>Pondok Pesantren Mahmud Marzuki Penyusawan menjalin kerja sama dengan beberapa lembaga pendidikan Islam internasional untuk pengembangan kurikulum dan pertukaran pelajar.</p>
+          </div>
+          <a href="berita/sinergi-global-pesantren.html" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+      
+      <!-- News Card 5 -->
+      <div class="news-card">
+        <div class="news-image">
+          <div class="news-category">Artikel Pendidikan</div>
+          <img src="img/news/digital.jpg" alt="Pendidikan Era Digital">
+        </div>
+        <div class="news-content">
+          <div class="news-date">
+            <i class="far fa-calendar-alt"></i> 10 Januari 2025
+          </div>
+          <h3 class="news-title">Pendidikan Islam di Era Digital: Tantangan dan Peluang</h3>
+          <div class="news-excerpt">
+            <p>Bagaimana pondok pesantren merespons perkembangan teknologi digital tanpa meninggalkan nilai-nilai tradisional yang menjadi fondasi pendidikan Islam.</p>
+          </div>
+          <a href="berita/pendidikan-islam-era-digital.html" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+      
+      <!-- News Card 6 -->
+      <div class="news-card">
+        <div class="news-image">
+          <div class="news-category">Kegiatan Pesantren</div>
+          <img src="img/news/kunjungan.jpg" alt="Kunjungan Duta Besar">
+        </div>
+        <div class="news-content">
+          <div class="news-date">
+            <i class="far fa-calendar-alt"></i> 5 Januari 2025
+          </div>
+          <h3 class="news-title">Kunjungan Duta Besar Arab Saudi ke Pesantren</h3>
+          <div class="news-excerpt">
+            <p>Duta Besar Kerajaan Arab Saudi untuk Indonesia, HE Dr. Abdullah Al-Mutairi, melakukan kunjungan ke Pondok Pesantren Mahmud Marzuki untuk membahas kerja sama pendidikan.</p>
+          </div>
+          <a href="berita/kunjungan-duta-besar.html" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="pagination">
+      <div class="page-item active">
+        <a href="#" class="page-link">1</a>
+      </div>
+      <div class="page-item">
+        <a href="#" class="page-link">2</a>
+      </div>
+      <div class="page-item">
+        <a href="#" class="page-link">3</a>
+      </div>
+      <div class="page-item">
+        <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+      </div>
+    </div>
+    
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+      <div class="newsletter-content">
+        <h3>Berlangganan Newsletter Kami</h3>
+        <p>Dapatkan informasi terbaru tentang kegiatan pesantren, acara mendatang, dan artikel pendidikan langsung ke email Anda.</p>
+        <form class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Alamat Email Anda" required>
+          <button type="submit" class="newsletter-btn">Berlangganan</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Hubungi Kami</h3>
+          <address>
+            <p><i class="fas fa-map-marker-alt"></i> Penyusawan, Jawa Barat, Indonesia</p>
+            <p><i class="fas fa-phone"></i> <a href="tel:0000000000000">0000000000000</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@mahmudmarzukipenyusaawan.org">info@mahmudmarzukipenyusaawan.org</a></p>
+          </address>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h3>Tautan Cepat</h3>
+          <div class="footer-links">
+            <a href="index.html"><i class="fas fa-angle-right"></i> Beranda</a>
+            <a href="about.html"><i class="fas fa-angle-right"></i> Tentang Kami</a>
+            <a href="programs.html"><i class="fas fa-angle-right"></i> Program Akademik</a>
+            <a href="admissions.html"><i class="fas fa-angle-right"></i> Pendaftaran</a>
+            <a href="contact.html"><i class="fas fa-angle-right"></i> Kontak</a>
+          </div>
+        </div>
+        
+        <div>
+          <h3>Program Kami</h3>
+          <div class="footer-links">
+            <a href="#"><i class="fas fa-angle-right"></i> Tahfidz Al-Qur'an</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Madrasah Tsanawiyah</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Madrasah Aliyah</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Kursus Bahasa</a>
+          </div>
+        </div>
+        
+        <div>
+          <h3>Berita Terbaru</h3>
+          <div class="footer-links">
+            <a href="berita/pendaftaran-santri-baru-2025.html"><i class="fas fa-angle-right"></i> Pendaftaran Santri Baru 2025</a>
+            <a href="berita/prestasi-olimpiade-sains.html"><i class="fas fa-angle-right"></i> Prestasi Olimpiade Sains</a>
+            <a href="berita/persiapan-ramadhan-2025.html"><i class="fas fa-angle-right"></i> Persiapan Ramadhan 2025</a>
+          </div>
+        </div>
+      </div>
+      
+      <hr>
+      
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="copyright">&copy; <span id="currentYear">2025</span> Pondok Pesantren Mahmud Marzuki Penyusawan. Semua hak cipta dilindungi.</p>
+        <div>
+          <a href="privacy.html" class="text-white me-3 small">Kebijakan Privasi</a>
+          <a href="terms.html" class="text-white small">Syarat & Ketentuan</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set current year in footer
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      // Header shrink on scroll
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          header.classList.add('shrink');
+        } else {
+          header.classList.remove('shrink');
+        }
+      });
+      
+      // Mobile navigation toggle
+      const navToggler = document.getElementById('navToggler');
+      const mainNav = document.getElementById('mainNav');
+      if (navToggler) {
+        navToggler.addEventListener('click', function() {
+          mainNav.classList.toggle('show-mobile');
+        });
+      }
+      
+      // Back to top button
+      const backToTop = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('active');
+        } else {
+          backToTop.classList.remove('active');
+        }
+      });
+      
+      backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      });
+      
+      // Category filter functionality
+      const categoryFilter = document.getElementById('categoryFilter');
+      const newsCards = document.querySelectorAll('.news-card');
+      
+      categoryFilter.addEventListener('change', function() {
+        const selectedCategory = this.value;
+        
+        // If "All Categories" is selected
+        if (!selectedCategory) {
+          newsCards.forEach(card => {
+            card.style.display = 'block';
+          });
+          return;
+        }
+        
+        // Filter cards based on category
+        newsCards.forEach(card => {
+          const cardCategory = card.querySelector('.news-category').textContent.toLowerCase();
+          const categoryMatch = cardCategory.includes(selectedCategory);
+          
+          if (categoryMatch) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+      
+      // Pagination functionality
+      const paginationLinks = document.querySelectorAll('.page-link');
+      
+      paginationLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Remove active class from all page items
+          document.querySelectorAll('.page-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          // Add active class to clicked page item
+          this.parentElement.classList.add('active');
+          
+          // Scroll to top of news grid
+          document.querySelector('.news-grid').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
