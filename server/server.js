@@ -29,9 +29,39 @@ app.use(express.static(publicAddress));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// akses ke home
+// akses ke page home
 app.get('/',(req,res) => {
-    res.send(path.join(publicAddress,'index.html'));
+    res.sendFile(path.join(publicAddress,'index.html'));
+})
+
+// akses ke page history
+app.get('/history',(req,res) => {
+    res.sendFile(path.join(publicAddress,'history.html'));
+})
+
+// akses ke page program akademik
+app.get('/akademik',(req,res) => {
+    res.sendFile(path.join(publicAddress,'academics.html'));
+})
+
+// akses ke program pembinaan intensif
+app.get('/intensif',(req,res) => {
+    res.sendFile(path.join(publicAddress,'intensivetraining.html'));
+})
+
+// akses ke kalender
+app.get('/kalender',(req,res) => {
+    res.sendFile(path.join(publicAddress,'calendar.html'));
+})
+
+// akses ke admisi
+app.get('/admisi',(req,res) => {
+    res.sendFile(path.join(publicAddress,'admissions.html'));
+})
+
+// akses ke podcast
+app.get('/podcast',(req,res) => {
+    res.sendFile(path.join(publicAddress,'podcast.html'));
 })
 
 // Ngirim data pesantren
