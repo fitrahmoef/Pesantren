@@ -1,0 +1,11 @@
+{
+  "name": "pesantrenclient",
+  "version": "1.0.0",
+  "description": "Client side dari website pesantren",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Muhammad Fitrah, Argy Fawwaz Akbar, Rafid Wahyu Aditya, Muhammad Bintang Fahrezi",
+  "license": "ISC"
+}
