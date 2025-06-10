@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admisi | Pondok Pesantren Mahmud Marzuki Penyusawan</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaftaran Santri Baru - Pondok Pesantren Mahmud Marzuki Penyasawan</title>
+  
+  <!-- CSS External -->
   <link rel="stylesheet" href="css/admission.css">
-
-
-  <!-- ikon -->
+  
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 </head>
 <body>
@@ -15,107 +16,430 @@
   <!-- ===== HEADER ===== -->
   <header id="header">
     <div class="container">
-      <div class="header-flex">
-        <div class="logo"><img src="images/logo-pesantren.png" alt="Logo" /></div>
-        <div class="logo-text">
-          <h1>Pondok Pesantren Mahmud Marzuki</h1>
-        </div>
-      </div>
+      <div class="logo"><img src="images/logo-pesantren.png" alt="Logo" /></div>
+      <h1>Pondok Pesantren Muhammadiyah Mahmud Marzuki</h1>
     </div>
   </header>
 
-  <div class="container">
+   <div class="container">
     <!-- ===== NAV ===== -->
-   <nav class="nav-grid">
-      <a class="nav-btn active" href="Main.html"><i class="fas fa-info-circle"></i>Tentang&nbsp;Kami</a>
+    <nav class="nav-grid">
+      <a class="nav-btn" href="index.html"><i class="fas fa-info-circle"></i>Tentang&nbsp;Kami</a>
       <a class="nav-btn" href="history.html"><i class="fas fa-history"></i>Sejarah</a>
       <a class="nav-btn" href="academics.html"><i class="fas fa-book"></i>Program&nbsp;Akademik</a>
       <a class="nav-btn" href="intensivetraining.html"><i class="fas fa-mosque"></i>Pembinaan&nbsp;Intensif</a>
       <a class="nav-btn" href="calendar.html"><i class="fas fa-calendar-alt"></i>Kalender</a>
-      <a class="nav-btn" href="admissions.html"><i class="fas fa-user-graduate"></i>Admisi</a>
+      <a class="nav-btn active" href="admissions.html"><i class="fas fa-user-graduate"></i>Admisi</a>
       <a href="podcast.html" class="nav-btn"><i class="fa-solid fa-podcast"></i>Podcast</a>
     </nav>
 
-    <!-- ===== HERO SIMPLE ===== -->
-    <section class="hero-simple">
-      <h1>Penerimaan Santri Baru</h1>
-      <p>Tahun Ajaran 2025/2026 • Pondok Pesantren Mahmud Marzuki Penyusawan</p>
-    </section>
+    <!-- ===== DEMO CONTROLS ===== -->
+    <div class="demo-controls">
+      <h3><i class="fas fa-tools"></i> Demo Validasi Form</h3>
+      <p style="margin-bottom: 15px;">Gunakan tombol di bawah untuk testing validasi form:</p>
+      <button class="demo-btn" onclick="fillTestData()"><i class="fas fa-fill"></i> Isi Data Test</button>
+      <button class="demo-btn" onclick="clearForm()"><i class="fas fa-eraser"></i> Kosongkan Form</button>
+      <button class="demo-btn" onclick="validateCurrentStep()"><i class="fas fa-check"></i> Validasi Step Saat Ini</button>
+      <button class="demo-btn" onclick="showValidationSummary()"><i class="fas fa-list"></i> Ringkasan Validasi</button>
+    </div>
 
-    <!-- ===== STEP PROGRESS ===== -->
-    <section id="steps">
-      <div class="step-bar">
-        <div class="step active"><div class="step-circle">1</div><span>Registrasi</span></div>
-        <div class="step"><div class="step-circle">2</div><span>Verifikasi</span></div>
-        <div class="step"><div class="step-circle">3</div><span>Tes Seleksi</span></div>
-        <div class="step"><div class="step-circle">4</div><span>Pengumuman</span></div>
-        <div class="step"><div class="step-circle">5</div><span>Daftar Ulang</span></div>
+    <!-- ===== FORM CONTAINER ===== -->
+    <div class="form-container" id="formContainer">
+      <div class="form-header">
+        <h2>Pendaftaran Santri Baru</h2>
+        <p>Tahun Ajaran 2025/2026</p>
       </div>
-
-      <!-- ACCORDION DETAIL -->
-      <div class="acc-item">
-        <div class="acc-head"><h3>1. Registrasi Online</h3><i class="fas fa-chevron-down"></i></div>
-        <div class="acc-content"><p>Buka portal admisi, isi formulir, dan unggah dokumen identitas.</p></div>
-      </div>
-      <div class="acc-item">
-        <div class="acc-head"><h3>2. Verifikasi Berkas</h3><i class="fas fa-chevron-down"></i></div>
-        <div class="acc-content"><p>Panitia mengecek kelengkapan berkas. Status dapat dipantau di dashboard.</p></div>
-      </div>
-      <div class="acc-item">
-        <div class="acc-head"><h3>3. Tes Seleksi</h3><i class="fas fa-chevron-down"></i></div>
-        <div class="acc-content"><p>Tes meliputi kemampuan akademik dasar, baca Qur’an, dan wawancara.</p></div>
-      </div>
-      <div class="acc-item">
-        <div class="acc-head"><h3>4. Pengumuman</h3><i class="fas fa-chevron-down"></i></div>
-        <div class="acc-content"><p>Hasil diumumkan di website &amp; email. Santri diterima melanjutkan ke tahap berikutnya.</p></div>
-      </div>
-      <div class="acc-item">
-        <div class="acc-head"><h3>5. Daftar Ulang</h3><i class="fas fa-chevron-down"></i></div>
-        <div class="acc-content"><p>Pembayaran infaq pendidikan, pengukuran seragam, dan penandatanganan surat komitmen.</p></div>
-      </div>
-    </section>
-
-    <!-- ===== FORM ===== -->
-    <section id="apply">
-      <h2>Formulir Pendaftaran Singkat</h2>
-      <form id="admissionForm" novalidate>
-        <div class="form-group">
-          <label for="name">Nama Lengkap *</label>
-          <input type="text" id="name" required>
-          <span class="err-msg">Nama wajib diisi.</span>
+      
+      <div class="step-progress">
+        <div class="progress-line" id="progressLine"></div>
+        <div class="step active" id="step-1">
+          1
+          <span class="step-label">Data Pribadi</span>
         </div>
-        <div class="form-group">
-          <label for="email">Email *</label>
-          <input type="email" id="email" required>
-          <span class="err-msg">Email tidak valid.</span>
+        <div class="step" id="step-2">
+          2
+          <span class="step-label">Pendidikan</span>
         </div>
-        <div class="form-group">
-          <label for="phone">No. HP *</label>
-          <input type="tel" id="phone" required>
-          <span class="err-msg">Nomor HP wajib diisi.</span>
+        <div class="step" id="step-3">
+          3
+          <span class="step-label">Dokumen</span>
         </div>
-        <div class="form-group">
-          <label for="level">Jenjang *</label>
-          <select id="level" required>
-            <option value="">--Pilih--</option>
-            <option>Madrasah Tsanawiyah</option>
-            <option>Madrasah Aliyah IPA</option>
-            <option>Madrasah Aliyah IPS</option>
-          </select>
-          <span class="err-msg">Silakan pilih jenjang.</span>
+        <div class="step" id="step-4">
+          4
+          <span class="step-label">Pembayaran</span>
         </div>
-        <button type="submit" class="btn-submit">Kirim Pendaftaran</button>
-        <div class="progress"><div class="progress-bar"></div></div>
-      </form>
-    </section>
-
-    <!-- ===== STATS ===== -->
-    <section class="stats">
-      <div class="stat-box"><div class="count" data-target="300">0</div><p>Kuota Kursi</p></div>
-      <div class="stat-box"><div class="count" data-target="125">0</div><p>Pendaftar Saat Ini</p></div>
-      <div class="stat-box"><div class="count" data-target="5">0</div><p>Hari ke Tes Gelombang 1</p></div>
-    </section>
-  </div><!-- /container -->
+        <div class="step" id="step-5">
+          5
+          <span class="step-label">Konfirmasi</span>
+        </div>
+      </div>
+      
+      <div class="form-body">
+        <form id="registrationForm">
+          <!-- STEP 1: DATA PRIBADI -->
+          <div class="form-step active" id="form-step-1">
+            <h3 class="step-title">Data Diri Calon Santri</h3>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="fullname" class="required">Nama Lengkap</label>
+                <input type="text" id="fullname" name="fullname" class="form-control" required>
+                <div class="error-message">Nama lengkap harus diisi</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="nickname">Nama Panggilan</label>
+                <input type="text" id="nickname" name="nickname" class="form-control">
+              </div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="birthplace" class="required">Tempat Lahir</label>
+                <input type="text" id="birthplace" name="birthplace" class="form-control" required>
+                <div class="error-message">Tempat lahir harus diisi</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="birthdate" class="required">Tanggal Lahir</label>
+                <input type="date" id="birthdate" name="birthdate" class="form-control" required>
+                <div class="error-message">Tanggal lahir harus diisi</div>
+              </div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="gender" class="required">Jenis Kelamin</label>
+                <select id="gender" name="gender" class="select-control" required>
+                  <option value="">Pilih Jenis Kelamin</option>
+                  <option value="Laki-laki">Laki-laki</option>
+                  <option value="Perempuan">Perempuan</option>
+                </select>
+                <div class="error-message">Jenis kelamin harus dipilih</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="blood-type">Golongan Darah</label>
+                <select id="blood-type" name="blood_type" class="select-control">
+                  <option value="">Pilih Golongan Darah</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="AB">AB</option>
+                  <option value="O">O</option>
+                  <option value="Tidak Tahu">Tidak Tahu</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="address" class="required">Alamat Lengkap</label>
+              <textarea id="address" name="address" class="form-control" rows="3" required></textarea>
+              <div class="error-message">Alamat lengkap harus diisi</div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="phone" class="required">Nomor HP (WhatsApp)</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 08123456789" required>
+                <div class="error-message">Nomor HP harus diisi dengan benar</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Alamat Email (jika ada)</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Contoh: nama@gmail.com">
+                <div class="error-message">Format email tidak valid</div>
+              </div>
+            </div>
+            
+            <h3 class="step-title">Data Orang Tua</h3>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="father-name" class="required">Nama Ayah</label>
+                <input type="text" id="father-name" name="father_name" class="form-control" required>
+                <div class="error-message">Nama ayah harus diisi</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="father-occupation" class="required">Pekerjaan Ayah</label>
+                <input type="text" id="father-occupation" name="father_occupation" class="form-control" required>
+                <div class="error-message">Pekerjaan ayah harus diisi</div>
+              </div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="mother-name" class="required">Nama Ibu</label>
+                <input type="text" id="mother-name" name="mother_name" class="form-control" required>
+                <div class="error-message">Nama ibu harus diisi</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="mother-occupation" class="required">Pekerjaan Ibu</label>
+                <input type="text" id="mother-occupation" name="mother_occupation" class="form-control" required>
+                <div class="error-message">Pekerjaan ibu harus diisi</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="parent-phone" class="required">Nomor HP Orang Tua</label>
+              <input type="tel" id="parent-phone" name="parent_phone" class="form-control" placeholder="Contoh: 08123456789" required>
+              <div class="error-message">Nomor HP orang tua harus diisi dengan benar</div>
+            </div>
+            
+            <div class="form-nav">
+              <div></div>
+              <button type="button" class="btn btn-next" id="step1Next">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+          
+          <!-- STEP 2: PENDIDIKAN -->
+          <div class="form-step" id="form-step-2">
+            <h3 class="step-title">Informasi Pendidikan</h3>
+            
+            <div class="form-group">
+              <label for="education-level" class="required">Pendaftaran untuk Tingkat</label>
+              <select id="education-level" name="education_level" class="select-control" required>
+                <option value="">Pilih Tingkat Pendidikan</option>
+                <option value="SLTP">SLTP (Tamatan SD/MI sederajat)</option>
+                <option value="SLTA">SLTA (Tamatan SMP/MTs sederajat)</option>
+              </select>
+              <div class="error-message">Tingkat pendidikan harus dipilih</div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="previous-school" class="required">Asal Sekolah</label>
+                <input type="text" id="previous-school" name="previous_school" class="form-control" required>
+                <div class="error-message">Asal sekolah harus diisi</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="graduation-year" class="required">Tahun Lulus</label>
+                <select id="graduation-year" name="graduation_year" class="select-control" required>
+                  <option value="">Pilih Tahun Lulus</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                </select>
+                <div class="error-message">Tahun lulus harus dipilih</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="nisn">NISN (jika ada)</label>
+              <input type="text" id="nisn" name="nisn" class="form-control">
+            </div>
+            
+            <h3 class="step-title">Informasi Kemampuan</h3>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="quran-ability" class="required">Kemampuan Membaca Al-Quran</label>
+                <select id="quran-ability" name="quran_ability" class="select-control" required>
+                  <option value="">Pilih Tingkat Kemampuan</option>
+                  <option value="Belum Bisa">Belum Bisa</option>
+                  <option value="Pemula">Pemula (Iqra)</option>
+                  <option value="Menengah">Menengah (Bisa membaca Al-Quran)</option>
+                  <option value="Lancar">Lancar Membaca</option>
+                  <option value="Hafal Juz Amma">Hafal Juz Amma</option>
+                  <option value="Hafal Beberapa Juz">Hafal Beberapa Juz</option>
+                </select>
+                <div class="error-message">Kemampuan membaca Al-Quran harus dipilih</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="shalat-ability" class="required">Kemampuan Shalat</label>
+                <select id="shalat-ability" name="shalat_ability" class="select-control" required>
+                  <option value="">Pilih Tingkat Kemampuan</option>
+                  <option value="Belum Bisa">Belum Bisa</option>
+                  <option value="Masih Belajar">Masih Belajar</option>
+                  <option value="Bisa dengan Panduan">Bisa dengan Panduan</option>
+                  <option value="Mandiri">Bisa Mandiri</option>
+                </select>
+                <div class="error-message">Kemampuan shalat harus dipilih</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="achievements">Prestasi yang Pernah Diraih (jika ada)</label>
+              <textarea id="achievements" name="achievements" class="form-control" rows="3" placeholder="Contoh: Juara 1 Lomba Tahfidz Tingkat Kecamatan"></textarea>
+            </div>
+            
+            <div class="form-nav">
+              <button type="button" class="btn btn-prev" id="step2Prev"><i class="fas fa-arrow-left"></i> Sebelumnya</button>
+              <button type="button" class="btn btn-next" id="step2Next">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+          
+          <!-- STEP 3: DOKUMEN -->
+          <div class="form-step" id="form-step-3">
+            <h3 class="step-title">Unggah Dokumen</h3>
+            <p style="margin-bottom: 20px;">Mohon siapkan dokumen dalam format JPG, PNG, atau PDF dengan ukuran maksimal 2MB per file.</p>
+            
+            <div class="form-group">
+              <label for="photo" class="required">Pas Foto 3x4</label>
+              <div class="file-upload">
+                <div class="file-label">
+                  <i class="fas fa-upload"></i>
+                  <p>Klik atau seret file ke sini</p>
+                </div>
+                <input type="file" id="photo" name="photo" class="file-input" accept="image/*" required>
+              </div>
+              <div class="file-info" id="photo-info">Belum ada file dipilih</div>
+              <div class="error-message">Pas foto harus diunggah</div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="birth-certificate" class="required">Akta Kelahiran</label>
+                <div class="file-upload">
+                  <div class="file-label">
+                    <i class="fas fa-upload"></i>
+                    <p>Klik atau seret file ke sini</p>
+                  </div>
+                  <input type="file" id="birth-certificate" name="birth_certificate" class="file-input" accept="image/*,application/pdf" required>
+                </div>
+                <div class="file-info" id="birth-certificate-info">Belum ada file dipilih</div>
+                <div class="error-message">Akta kelahiran harus diunggah</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="family-card" class="required">Kartu Keluarga</label>
+                <div class="file-upload">
+                  <div class="file-label">
+                    <i class="fas fa-upload"></i>
+                    <p>Klik atau seret file ke sini</p>
+                  </div>
+                  <input type="file" id="family-card" name="family_card" class="file-input" accept="image/*,application/pdf" required>
+                </div>
+                <div class="file-info" id="family-card-info">Belum ada file dipilih</div>
+                <div class="error-message">Kartu keluarga harus diunggah</div>
+              </div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="parent-id" class="required">KTP Orang Tua</label>
+                <div class="file-upload">
+                  <div class="file-label">
+                    <i class="fas fa-upload"></i>
+                    <p>Klik atau seret file ke sini</p>
+                  </div>
+                  <input type="file" id="parent-id" name="parent_id" class="file-input" accept="image/*,application/pdf" required>
+                </div>
+                <div class="file-info" id="parent-id-info">Belum ada file dipilih</div>
+                <div class="error-message">KTP orang tua harus diunggah</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="report-card" class="required">Rapor Terakhir</label>
+                <div class="file-upload">
+                  <div class="file-label">
+                    <i class="fas fa-upload"></i>
+                    <p>Klik atau seret file ke sini</p>
+                  </div>
+                  <input type="file" id="report-card" name="report_card" class="file-input" accept="image/*,application/pdf" required>
+                </div>
+                <div class="file-info" id="report-card-info">Belum ada file dipilih</div>
+                <div class="error-message">Rapor terakhir harus diunggah</div>
+              </div>
+            </div>
+            
+            <div class="form-nav">
+              <button type="button" class="btn btn-prev" id="step3Prev"><i class="fas fa-arrow-left"></i> Sebelumnya</button>
+              <button type="button" class="btn btn-next" id="step3Next">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+          
+          <!-- STEP 4: PEMBAYARAN -->
+          <div class="form-step" id="form-step-4">
+            <h3 class="step-title">Informasi Pembayaran</h3>
+            
+            <div class="payment-info">
+              <p>Biaya pendaftaran sebesar <strong>Rp. 50.000</strong> dapat dibayarkan melalui transfer bank.</p>
+              <div class="payment-details">
+                <p><strong>Bank:</strong> BRKS Bangkinang</p>
+                <p><strong>No. Rekening:</strong> 109-43-02536</p>
+                <p><strong>Atas Nama:</strong> Pondok Pesantren Mahmud Marzuki Penyasawan</p>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="payment-proof" class="required">Bukti Pembayaran</label>
+              <div class="file-upload">
+                <div class="file-label">
+                  <i class="fas fa-upload"></i>
+                  <p>Klik atau seret file bukti pembayaran ke sini</p>
+                </div>
+                <input type="file" id="payment-proof" name="payment_proof" class="file-input" accept="image/*,application/pdf" required>
+              </div>
+              <div class="file-info" id="payment-proof-info">Belum ada file dipilih</div>
+              <div class="error-message">Bukti pembayaran harus diunggah</div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="payment-date" class="required">Tanggal Pembayaran</label>
+                <input type="date" id="payment-date" name="payment_date" class="form-control" required>
+                <div class="error-message">Tanggal pembayaran harus diisi</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="payment-name" class="required">Nama Pengirim</label>
+                <input type="text" id="payment-name" name="payment_name" class="form-control" required>
+                <div class="error-message">Nama pengirim harus diisi</div>
+              </div>
+            </div>
+            
+            <div class="form-nav">
+              <button type="button" class="btn btn-prev" id="step4Prev"><i class="fas fa-arrow-left"></i> Sebelumnya</button>
+              <button type="button" class="btn btn-next" id="step4Next">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+          
+          <!-- STEP 5: KONFIRMASI -->
+          <div class="form-step" id="form-step-5">
+            <h3 class="step-title">Konfirmasi Data</h3>
+            <p style="margin-bottom: 20px;">Silakan periksa kembali data yang telah diisi. Pastikan semua informasi yang dimasukkan sudah benar.</p>
+            
+            <div id="summary-container" class="summary-container">
+              <!-- Data will be generated by JavaScript -->
+            </div>
+            
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms" class="required">Saya menyatakan bahwa data yang saya masukkan adalah benar dan dapat dipertanggungjawabkan.</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="rules" name="rules" required>
+                <label for="rules" class="required">Saya bersedia mematuhi semua peraturan Pondok Pesantren Mahmud Marzuki Penyasawan.</label>
+              </div>
+            </div>
+            
+            <div class="form-nav">
+              <button type="button" class="btn btn-prev" id="step5Prev"><i class="fas fa-arrow-left"></i> Sebelumnya</button>
+              <button type="submit" class="btn btn-submit" id="submitForm">Validasi Selesai <i class="fas fa-check"></i></button>
+            </div>
+          </div>
+        </form>
+        
+        <!-- SUCCESS MESSAGE -->
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle success-icon"></i>
+          <h2 class="success-title">Validasi Form Berhasil!</h2>
+          <p>Semua data telah tervalidasi dengan benar.</p>
+          <p>Dalam implementasi nyata, data akan dikirim ke server.</p>
+          <div class="registration-number" id="registrationNumber">VALIDASI-BERHASIL</div>
+          <p>Form siap untuk diintegrasikan dengan backend.</p>
+          <a href="#" class="btn-print" id="resetForm"><i class="fas fa-refresh"></i> Reset Form</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== FOOTER ===== -->
   <footer>
@@ -123,17 +447,17 @@
       <div class="foot-grid">
         <div>
           <h3>Contact Us</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Penyusawan</p>
-          <p><i class="fas fa-phone"></i> 0000000000000</p>
-          <p><i class="fas fa-envelope"></i> info@mahmudmarzukipenyusaawan.org</p>
+          <p><i class="fas fa-map-marker-alt"></i> Penyasawan, Kampar, Riau</p>
+          <p><i class="fas fa-phone"></i> 08117676022</p>
+          <p><i class="fas fa-envelope"></i> admin@ponpesmumahmudmarzuki.com</p>
         </div>
         <div>
           <h3>Quick Links</h3>
           <div class="foot-links">
-            <a href="Main.html"><i class="fas fa-angle-right"></i> Tentang Kami</a>
-            <a href="academics.html"><i class="fas fa-angle-right"></i> Program Akademik</a>
-            <a href="islamic-studies.html"><i class="fas fa-angle-right\"></i> Studi Islam</a>
-            <a href="admissions.html"><i class="fas fa-angle-right"></i> Admisi</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Beranda</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Program Akademik</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Studi Islam</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Admisi</a>
           </div>
         </div>
         <div>
@@ -145,65 +469,11 @@
           </div>
         </div>
       </div>
-      <p class="copyright">&copy; 2025 Mahmud Marzuki Penyusawan. Semua hak cipta dilindungi.</p>
+      <p class="copyright">&copy; 2025 Mahmud Marzuki Penyasawan. Semua hak cipta dilindungi.</p>
     </div>
   </footer>
 
-  <!-- ============ JavaScript ============ -->
-  <script>
-    /* header shrink */
-    const header=document.getElementById('header');
-    window.addEventListener('scroll',()=>header.classList.toggle('shrink',window.scrollY>120));
-
-    /* accordion */
-    document.querySelectorAll('.acc-item').forEach(acc=>{
-      acc.querySelector('.acc-head').onclick=()=>{
-        acc.classList.toggle('open');
-      };
-    });
-
-    /* form validation */
-    const form=document.getElementById('admissionForm');
-    const progress=document.querySelector('.progress');
-    const bar=document.querySelector('.progress-bar');
-    form.addEventListener('submit',e=>{
-      e.preventDefault();
-      let valid=true;
-      form.querySelectorAll('[required]').forEach(inp=>{
-        const err=inp.nextElementSibling;
-        if(!inp.value.trim()||(inp.type==='email'&&!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(inp.value))){
-          inp.classList.add('error');
-          err.style.display='block';
-          valid=false;
-        }else{inp.classList.remove('error');err.style.display='none';}
-      });
-      if(!valid)return;
-      progress.style.display='block';
-      bar.style.width='0';
-      let w=0;
-      const int=setInterval(()=>{w+=10;bar.style.width=w+'%';if(w>=100){clearInterval(int);alert('Pendaftaran terkirim!');form.reset();progress.style.display='none';}},120);
-    });
-
-    /* step bar highlight ketika accordion dibuka */
-    const steps=document.querySelectorAll('.step');
-    document.querySelectorAll('.acc-item').forEach((acc,i)=>{
-      acc.querySelector('.acc-head').addEventListener('click',()=>{
-        steps.forEach(s=>s.classList.remove('active'));
-        steps[i].classList.add('active');
-      });
-    });
-
-    /* counter animation */
-    const countObs=new IntersectionObserver(ents=>{
-      ents.forEach(ent=>{
-        if(ent.isIntersecting){
-          const el=ent.target,tgt=+el.dataset.target,step=Math.ceil(tgt/100);let cur=0;
-          const inc=()=>{cur+=step;el.textContent=cur>=tgt?tgt:cur;cur<tgt&&requestAnimationFrame(inc);};
-          requestAnimationFrame(inc);countObs.unobserve(el);
-        }
-      });
-    },{threshold:.6});
-    document.querySelectorAll('.count').forEach(el=>countObs.observe(el));
-  </script>
+  <!-- JavaScript External -->
+  <script src="data/script.js"></script>
 </body>
 </html>
