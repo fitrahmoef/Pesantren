@@ -1,0 +1,16 @@
+{
+  "name": "serverpesantren",
+  "version": "1.0.0",
+  "description": "Server side dari website pesantren",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rafid Wahyu Aditya, Muhammad Fitrah, Argy Fawwaz Akbar, Muhammad Bintang Fahrezi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0"
+  }
+}
